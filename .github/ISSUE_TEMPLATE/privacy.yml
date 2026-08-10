@@ -1,0 +1,14 @@
+name: Privacy question
+description: Ask about What Holds privacy or local deletion
+title: "Privacy: "
+labels: [privacy]
+body:
+  - type: markdown
+    attributes:
+      value: Do not include captured content, personal data, API tokens, or credentials. What Holds has no developer-operated user account or cloud library.
+  - type: textarea
+    id: question
+    attributes:
+      label: Question
+    validations:
+      required: true

@@ -1,0 +1,26 @@
+:root {
+  color-scheme: light dark;
+  --ink: #061325;
+  --paper: #f5f0e3;
+  --green: #668d4f;
+  --muted: #657080;
+  --surface: color-mix(in srgb, Canvas 93%, var(--paper) 7%);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; background: Canvas; color: CanvasText; line-height: 1.6; }
+main { max-width: 780px; margin: 0 auto; padding: 72px 24px 96px; }
+.brand { display: flex; align-items: center; gap: 16px; margin-bottom: 48px; }
+.mark { width: 52px; height: 52px; border-radius: 14px; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-size: 26px; }
+h1 { font-size: clamp(2.4rem, 7vw, 4.5rem); line-height: 1.02; letter-spacing: -0.045em; margin: 0 0 18px; }
+h2 { margin-top: 42px; line-height: 1.2; }
+.lede { font-size: 1.25rem; color: var(--muted); max-width: 640px; }
+.card { margin-top: 32px; padding: 24px; border: 1px solid color-mix(in srgb, CanvasText 12%, transparent); border-radius: 18px; background: var(--surface); }
+.actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+a.button { display: inline-block; padding: 11px 17px; border-radius: 999px; background: var(--green); color: white; text-decoration: none; font-weight: 650; }
+a.secondary { background: transparent; color: CanvasText; border: 1px solid color-mix(in srgb, CanvasText 25%, transparent); }
+a { color: var(--green); }
+footer { margin-top: 64px; color: var(--muted); font-size: .9rem; }
+ul { padding-left: 1.25rem; }
+@media (prefers-color-scheme: dark) { :root { --surface: #111a27; --muted: #a8b2bf; } }

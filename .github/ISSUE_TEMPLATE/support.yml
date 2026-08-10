@@ -1,0 +1,29 @@
+name: App support
+description: Report an issue or request help with What Holds
+title: "Support: "
+labels: [support]
+body:
+  - type: markdown
+    attributes:
+      value: Please do not paste private captured content, API tokens, or credentials.
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: [iPhone, iPad, Mac]
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: App and OS versions
+      placeholder: What Holds 1.0 (1), iOS 26.0
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What happened?
+      description: Include steps to reproduce and what you expected.
+    validations:
+      required: true

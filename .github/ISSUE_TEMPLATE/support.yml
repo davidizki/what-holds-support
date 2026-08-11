@@ -5,7 +5,7 @@ labels: [support]
 body:
   - type: markdown
     attributes:
-      value: Please do not paste private captured content, API tokens, or credentials.
+      value: This issue will be public. Do not paste captured content, personal data, private URLs, exported libraries, API tokens, or credentials.
   - type: dropdown
     id: platform
     attributes:
@@ -17,13 +17,34 @@ body:
     id: versions
     attributes:
       label: App and OS versions
-      placeholder: What Holds 1.0 (1), iOS 26.0
+      placeholder: What Holds 1.0 (1), iOS 26.5
+    validations:
+      required: true
+  - type: dropdown
+    id: processing
+    attributes:
+      label: Processing status, if relevant
+      options:
+        - Not related to processing
+        - On-device intelligence ready
+        - Turn on Apple Intelligence for richer processing
+        - Apple Intelligence is getting ready
+        - Standard processing is ready
+        - Enhanced on this device
+        - Standard on-device processing
+        - Public evidence scan
+        - Custom model provider
     validations:
       required: true
   - type: textarea
     id: problem
     attributes:
       label: What happened?
-      description: Include steps to reproduce and what you expected.
+      description: Include reproducible steps and what you expected, but replace private source text with a harmless example.
     validations:
       required: true
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What have you already tried?
+      description: For example, retrying with pasted text, checking the processing status, or exporting a backup first.

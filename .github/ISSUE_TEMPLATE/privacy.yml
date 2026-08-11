@@ -5,7 +5,7 @@ labels: [privacy]
 body:
   - type: markdown
     attributes:
-      value: Do not include captured content, personal data, API tokens, or credentials. What Holds has no developer-operated user account or cloud library.
+      value: This issue will be public. Do not include captured content, personal data, private URLs, exported libraries, API tokens, or credentials. What Holds has no developer-operated user account or cloud library.
   - type: textarea
     id: question
     attributes:

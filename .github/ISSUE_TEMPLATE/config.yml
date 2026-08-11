@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Read support guidance first
+    url: https://davidizki.github.io/what-holds-support/support.html
+    about: Review processing, capture, backup, fact-check, and endpoint guidance before filing a public issue.

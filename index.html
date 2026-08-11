@@ -3,34 +3,209 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Support and documentation for What Holds, a private knowledge and learning app.">
-  <title>What Holds — Support</title>
+  <meta name="description" content="What Holds turns sources into durable, source-linked knowledge with automatic on-device intelligence and a private fallback.">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ec">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1510">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="What Holds — Knowledge worth keeping">
+  <meta property="og:description" content="Capture deliberately, keep the source attached, and review conclusions without losing corrections.">
+  <meta property="og:url" content="https://davidizki.github.io/what-holds-support/">
+  <title>What Holds — Knowledge worth keeping</title>
+  <link rel="canonical" href="https://davidizki.github.io/what-holds-support/">
+  <link rel="icon" href="site-icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<main>
-  <header class="brand"><div class="mark" aria-hidden="true">✓</div><strong>What Holds</strong></header>
-  <h1>Knowledge worth keeping.</h1>
-  <p class="lede">What Holds is a private knowledge and learning hub for iPhone, iPad, and Mac. Capture deliberately, keep the source attached, and review the conclusion until it is yours.</p>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="actions">
-    <a class="button" href="https://github.com/davidizki/what-holds-support/issues/new/choose">Contact support</a>
-    <a class="button secondary" href="privacy.html">Privacy policy</a>
-  </div>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="What Holds home">
+    <span class="mark" aria-hidden="true">✓</span>
+    <span><strong>What Holds</strong><small>Knowledge worth keeping</small></span>
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="index.html" aria-current="page">Product</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</header>
 
-  <section class="card">
-    <h2>Get help</h2>
-    <p>For an app issue, feature request, privacy question, or general feedback, open a support request. Include the platform, operating-system version, app version, and steps to reproduce. Do not include private captured content or API tokens.</p>
-    <p><strong>Developer:</strong> David Izquierdo<br><strong>Contact:</strong> <a href="https://github.com/davidizki/what-holds-support/issues">What Holds support requests on GitHub</a></p>
+<main id="main">
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <p class="eyebrow">Private knowledge for iPhone, iPad, and Mac</p>
+      <h1 id="hero-title">Turn sources into knowledge worth keeping.</h1>
+      <p class="lede">Capture a source with intent, keep its provenance attached, and revisit both memories and time-sensitive claims at the right moment.</p>
+      <ul class="promise-list" aria-label="Product promises">
+        <li>No account</li>
+        <li>No subscription</li>
+        <li>Useful without Apple Intelligence</li>
+      </ul>
+      <div class="actions">
+        <a class="button" href="#treatments">See how it works</a>
+        <a class="button secondary" href="support.html">Read support guidance</a>
+      </div>
+      <p class="release-note"><strong>Release status:</strong> preparing for App Store review. Final availability and storefront pricing will be published here.</p>
+    </div>
+
+    <figure class="product-preview">
+      <div class="device-frame">
+        <div class="app-mock" role="img" aria-label="Illustration of What Holds showing a source-linked Summary and Apple on-device processing provenance">
+          <div aria-hidden="true">
+            <div class="mock-status"><span>9:41</span><span>● ● ●</span></div>
+            <div class="mock-nav"><span>‹</span><strong>What Holds</strong><span>•••</span></div>
+            <span class="mock-provider">Apple on-device</span>
+            <h3>How retrieval practice protects knowledge</h3>
+            <div class="mock-source"><small>Source attached</small><strong>Retrieval practice and corrective feedback</strong></div>
+            <h4>Summary</h4>
+            <p>Retrieval practice makes useful knowledge easier to access. Corrective feedback keeps confident errors from becoming durable memories.</p>
+            <h4>Key points</h4>
+            <ul>
+              <li>Recall strengthens access.</li>
+              <li>Corrections stay attached.</li>
+              <li>The source remains visible.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <figcaption>Illustrative product view. Every result keeps its source and processing route visible.</figcaption>
+    </figure>
   </section>
 
-  <h2>Common questions</h2>
-  <p><strong>Do I need an account?</strong><br>No. The app’s main features work without signing in.</p>
-  <p><strong>Where is my library?</strong><br>It is stored in the local app container. Use Settings → Export library to keep a portable JSON backup.</p>
-  <p><strong>Does processing require a paid AI service?</strong><br>No. The built-in processor works locally. An OpenAI-compatible endpoint is optional and may point to an open-source model on your own hardware.</p>
-  <p><strong>Is Fact-check exhaustive?</strong><br>No. It is a clearly labelled preliminary evidence scan. “Unsupported” means the scan did not corroborate a claim; it does not mean the claim was proven false.</p>
+  <section id="treatments" class="section" aria-labelledby="treatments-title">
+    <p class="eyebrow">One source, five treatments</p>
+    <h2 id="treatments-title">Decide what the source deserves.</h2>
+    <p class="section-intro">What Holds does not force every source into the same generic summary. Choose the job, then the app enforces that mode’s structure before saving.</p>
+    <div class="mode-grid">
+      <article class="mode-card concept">
+        <span class="mode-icon" aria-hidden="true">◇</span>
+        <h3>Concept</h3>
+        <p>One atomic, reusable idea with a focused explanation.</p>
+      </article>
+      <article class="mode-card summary">
+        <span class="mode-icon" aria-hidden="true">≡</span>
+        <h3>Summary</h3>
+        <p>A faithful compression followed by concise key points.</p>
+      </article>
+      <article class="mode-card fact-check">
+        <span class="mode-icon" aria-hidden="true">✓</span>
+        <h3>Fact-check</h3>
+        <p>A preliminary public-evidence scan with qualified verdicts.</p>
+      </article>
+      <article class="mode-card analysis">
+        <span class="mode-icon" aria-hidden="true">⌁</span>
+        <h3>Analysis</h3>
+        <p>Thesis, reasoning, implications, and explicit limitations.</p>
+      </article>
+      <article class="mode-card copy">
+        <span class="mode-icon" aria-hidden="true">▤</span>
+        <h3>Copy</h3>
+        <p>The acquired text preserved as-is, without rewriting.</p>
+      </article>
+    </div>
+  </section>
 
-  <footer>© 2026 David Izquierdo · What Holds support</footer>
+  <section class="section intelligence" aria-labelledby="intelligence-title">
+    <div>
+      <p class="eyebrow">Intelligence without setup</p>
+      <h2 id="intelligence-title">The best available private route, automatically.</h2>
+      <p class="section-intro">There is no model picker during onboarding and no cloud account to create. What Holds chooses a safe route for each capture and records the route on the saved note.</p>
+    </div>
+    <ol class="route-list">
+      <li>
+        <strong>Apple on-device intelligence</strong>
+        <span>Used for eligible captures when Apple’s on-device Foundation Model is available, ready, and supports the current language.</span>
+      </li>
+      <li>
+        <strong>Private deterministic engine</strong>
+        <span>Completes the capture automatically on older systems, ineligible devices, oversized sources, or whenever model generation cannot safely finish.</span>
+      </li>
+      <li>
+        <strong>Purpose-built exceptions</strong>
+        <span>Copy preserves the source exactly. Fact-check uses the disclosed public-evidence workflow; an LLM is never treated as evidence.</span>
+      </li>
+    </ol>
+    <aside class="notice" aria-label="Apple Intelligence availability">
+      <strong>Availability varies.</strong> The app itself supports iOS/iPadOS 17 or later and macOS 14 or later. Apple on-device generation additionally requires a compatible device, a supported language and region, Apple Intelligence enabled, and a ready system model on iOS/iPadOS/macOS 26 or later. The private fallback requires none of those things.
+    </aside>
+    <p class="advanced-note"><strong>Advanced users:</strong> an explicitly enabled OpenAI-compatible endpoint can override automatic processing. The full acquired source is then sent to that endpoint under its own terms. This is optional and is not a connection to a ChatGPT subscription. <a href="support.html#custom-endpoint">Read the setup and privacy details.</a></p>
+  </section>
+
+  <section class="section" aria-labelledby="learning-title">
+    <p class="eyebrow">Knowledge that holds up</p>
+    <h2 id="learning-title">Remember the conclusion without losing the correction.</h2>
+    <div class="benefit-grid">
+      <article class="feature-card">
+        <h3>Source-linked by design</h3>
+        <p>Keep the original text, capture date, URL, content hash, and the processor that produced the note.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Truth-aware review</h3>
+        <p>Fact-check cards retain the verdict and correction together, reducing the risk of rehearsing a disputed claim as fact.</p>
+      </article>
+      <article class="feature-card">
+        <h3>Portable, not captive</h3>
+        <p>Export a versioned JSON backup or share an individual note as Markdown. Version 1 does not promise cloud sync.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section privacy-summary" aria-labelledby="privacy-title">
+    <div>
+      <p class="eyebrow">A visible trust boundary</p>
+      <h2 id="privacy-title">Local by default does not mean “never networks.”</h2>
+      <p>The app labels each route honestly. Your library and review history stay in the app container; specific actions can contact a source site, Wikipedia, or an advanced endpoint you deliberately configure.</p>
+      <a class="text-link" href="privacy.html">Read the full privacy policy <span aria-hidden="true">→</span></a>
+    </div>
+    <dl class="boundary-list">
+      <div><dt>Apple model</dt><dd>On device</dd></div>
+      <div><dt>Deterministic processing</dt><dd>On device</dd></div>
+      <div><dt>Ask your library</dt><dd>On device</dd></div>
+      <div><dt>Web capture</dt><dd>Selected source site</dd></div>
+      <div><dt>Fact-check</dt><dd>English Wikipedia API</dd></div>
+      <div><dt>Custom model</dt><dd>Your configured endpoint</dd></div>
+    </dl>
+  </section>
+
+  <section class="section faq" aria-labelledby="faq-title">
+    <p class="eyebrow">Questions before buying</p>
+    <h2 id="faq-title">Straight answers.</h2>
+    <details>
+      <summary>Do I need Apple Intelligence?</summary>
+      <p>No. Compatible devices get richer on-device processing automatically when Apple’s model is ready. Every supported device retains the private deterministic route.</p>
+    </details>
+    <details>
+      <summary>Do I need an AI subscription or account?</summary>
+      <p>No. Version 1 is designed as a one-time purchase with no What Holds account or subscription. The advanced custom-endpoint option is entirely optional and uses credentials supplied for that endpoint—not a ChatGPT login.</p>
+    </details>
+    <details>
+      <summary>Is Fact-check a professional verification service?</summary>
+      <p>No. It is a deliberately limited preliminary scan of English Wikipedia. “Unsupported” means that scan did not corroborate the claim; it does not prove the claim false.</p>
+    </details>
+    <details>
+      <summary>Does the first version sync between devices?</summary>
+      <p>No. Each device keeps its own local library. Use JSON export for a portable backup and import it deliberately on another device.</p>
+    </details>
+  </section>
+
+  <section class="section closing" aria-labelledby="closing-title">
+    <p class="eyebrow">Private first release</p>
+    <h2 id="closing-title">No account. No feed. No recurring cloud bill.</h2>
+    <p>What Holds is being prepared as a paid-quality, one-time-purchase app. Support and review materials will remain available here as the release moves through Apple’s process.</p>
+    <div class="actions">
+      <a class="button" href="support.html">Get support</a>
+      <a class="button secondary" href="privacy.html">Review privacy</a>
+    </div>
+  </section>
 </main>
+
+<footer class="site-footer">
+  <div><strong>What Holds</strong><span>© 2026 David Izquierdo</span></div>
+  <nav aria-label="Footer navigation">
+    <a href="index.html">Product</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html">Privacy</a>
+  </nav>
+</footer>
 </body>
 </html>

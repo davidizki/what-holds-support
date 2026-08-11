@@ -3,38 +3,137 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy policy for the What Holds app.">
+  <meta name="description" content="Privacy policy for What Holds, including on-device processing, source retrieval, public evidence lookups, and optional custom model endpoints.">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ec">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1510">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="What Holds — Privacy Policy">
+  <meta property="og:description" content="A plain-language account of what stays on device and what can leave it.">
+  <meta property="og:url" content="https://davidizki.github.io/what-holds-support/privacy.html">
   <title>What Holds — Privacy Policy</title>
+  <link rel="canonical" href="https://davidizki.github.io/what-holds-support/privacy.html">
+  <link rel="icon" href="site-icon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<main>
-  <header class="brand"><div class="mark" aria-hidden="true">✓</div><strong>What Holds</strong></header>
-  <h1>Privacy policy</h1>
-  <p class="lede"><strong>Effective 11 August 2026.</strong> What Holds is designed to work without an account. The developer does not collect, sell, rent, or use personal data for advertising or tracking.</p>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <h2>Data stored on your device</h2>
-  <p>Your captured sources, knowledge notes, review cards, review history, settings, and search data are stored locally in the app container. Share extensions use the app’s private shared container only to hand content to the main app.</p>
+<header class="site-header">
+  <a class="brand" href="index.html" aria-label="What Holds home">
+    <span class="mark" aria-hidden="true">✓</span>
+    <span><strong>What Holds</strong><small>Knowledge worth keeping</small></span>
+  </a>
+  <nav aria-label="Primary navigation">
+    <a href="index.html">Product</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html" aria-current="page">Privacy</a>
+  </nav>
+</header>
 
-  <h2>Network activity</h2>
-  <p>What Holds connects to the network when you ask it to retrieve a source. A preliminary fact-check sends selected claim text to public evidence sources. An external model receives source content only when you explicitly enable and use the endpoint you configure.</p>
-  <p>If you enable a remote model endpoint, source content and processing instructions are sent to the endpoint you configure and are governed by that service’s terms and privacy policy. The service may retain or process the content. Use a local endpoint if you do not want model inference to leave your hardware. External model processing is disabled by default.</p>
-  <p>The developer does not receive your library, captured content, model requests, or API credentials.</p>
+<main id="main" class="document-page">
+  <header class="document-header">
+    <p class="eyebrow">Plain-language policy</p>
+    <h1>Privacy policy</h1>
+    <p class="lede"><strong>Effective 11 August 2026.</strong> What Holds works without an account. The developer does not sell data, use it for advertising, track you across apps or websites, or operate a cloud copy of your library.</p>
+  </header>
 
-  <h2>Export and deletion</h2>
-  <p>You can export the library as JSON, share individual notes as Markdown, delete individual items, or erase the local library in Settings. Removing the app removes its app-container data, subject to Apple platform backup behavior.</p>
+  <nav class="document-nav" aria-label="Privacy policy sections">
+    <strong>On this page</strong>
+    <a href="#on-device">On-device data</a>
+    <a href="#network">Network activity</a>
+    <a href="#retention">Retention and deletion</a>
+    <a href="#website">This website and support</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <h2>Children</h2>
-  <p>What Holds is a general-audience education and productivity tool. It does not knowingly collect personal information from children.</p>
+  <article class="document-content">
+    <section id="on-device">
+      <h2>Data stored on your device</h2>
+      <p>Captured sources, knowledge notes, claims, review cards, review history, preferences, and local search data are stored in the app container. Share extensions use the app’s private shared container only to hand selected content to the main app.</p>
+      <p>Apple on-device Foundation Model processing and the deterministic engine run on the device. What Holds does not send their prompts or results to the developer. Ask is also an extractive search over the local library and does not call a model service.</p>
+    </section>
 
-  <h2>Changes</h2>
-  <p>Material changes to this policy will be included with an app update and reflected by a new effective date.</p>
+    <section id="network">
+      <h2>When information leaves the device</h2>
+      <p>What Holds makes no background analytics or advertising requests. Network activity occurs only for an action you select or a processing route the app identifies before it runs.</p>
+      <div class="table-wrap" role="region" aria-label="What Holds network boundaries" tabindex="0">
+        <table>
+          <thead>
+            <tr><th scope="col">Action</th><th scope="col">What is sent</th><th scope="col">Recipient</th><th scope="col">Why</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Retrieve a web source</th>
+              <td>The normal web request for the URL you chose</td>
+              <td>The source website and its infrastructure</td>
+              <td>To acquire the page you asked to capture</td>
+            </tr>
+            <tr>
+              <th scope="row">Run Fact-check</th>
+              <td>A search query containing up to the first 16 words of each selected claim</td>
+              <td>The public English Wikipedia API operated by the Wikimedia Foundation</td>
+              <td>To locate one preliminary independent reference</td>
+            </tr>
+            <tr>
+              <th scope="row">Use a custom model endpoint</th>
+              <td>The source title, URL when present, full acquired text, processing instructions, and the endpoint credential when required</td>
+              <td>The OpenAI-compatible endpoint you explicitly enable and configure</td>
+              <td>To process Concept, Summary, Analysis, or Copy metadata through that service</td>
+            </tr>
+            <tr>
+              <th scope="row">Export, share, or request support</th>
+              <td>The file, note, or support information you deliberately choose</td>
+              <td>The destination you select</td>
+              <td>To complete your requested action</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-  <h2>Contact</h2>
-  <p>Privacy questions and deletion questions can be sent to developer David Izquierdo through <a href="https://github.com/davidizki/what-holds-support/issues/new/choose">the public What Holds support form</a>. Do not include private captured content or credentials.</p>
+      <h3>Fact-check is a public evidence lookup</h3>
+      <p>The English Wikipedia API receives the short claim query described above. What Holds stores the returned page title, URL, and excerpt locally with the note. Wikimedia’s handling of requests is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>. The scan is preliminary, not exhaustive, and an absent result is not proof that a claim is false.</p>
 
-  <div class="actions"><a class="button secondary" href="index.html">Back to support</a></div>
-  <footer>© 2026 David Izquierdo · What Holds privacy</footer>
+      <h3>Custom model endpoints are an advanced override</h3>
+      <p>Custom model processing is not required and is not a connection to a ChatGPT subscription. It begins only after you enable an endpoint in Advanced settings with a clear disclosure that the acquired source and any saved API token used as an authorization credential will be sent there. Changing the destination clears the saved token and requires new consent. The endpoint’s own operator—not What Holds—controls its retention, logging, training, security, and deletion practices. Review that provider’s policy before enabling it. A local endpoint can keep inference on hardware you control.</p>
+      <p>Endpoint credentials are stored in Apple Keychain and are excluded from library exports, shared notes, screenshots, and the public support site. Disable the endpoint to stop future requests; contact its operator about any data it already received.</p>
+    </section>
+
+    <section id="retention">
+      <h2>Retention, export, and deletion</h2>
+      <p>Local library data remains until you delete an item, erase the library in Settings, or remove the app, subject to Apple platform backup behavior. Deleting a note also removes its app-managed source, claims, cards, and review history when they are no longer used elsewhere.</p>
+      <p>You can export a versioned JSON backup or share an individual note as Markdown. Those files are then controlled by the location or service you choose. What Holds has no developer account or server-side library to delete on your behalf.</p>
+    </section>
+
+    <section id="website">
+      <h2>This website and support</h2>
+      <p>This static site is hosted by GitHub Pages. The developer has not added advertising or analytics. GitHub may process connection information under the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub General Privacy Statement</a>.</p>
+      <p>The current support route uses public GitHub issues. It requires a GitHub account, and the issue text is visible publicly. Do not include captured content, personal data, API tokens, credentials, or anything you do not want published. GitHub governs account and issue data under its own policy.</p>
+    </section>
+
+    <section>
+      <h2>Children</h2>
+      <p>What Holds is a general-audience education and productivity tool. The developer does not knowingly collect personal information from children.</p>
+    </section>
+
+    <section>
+      <h2>Changes</h2>
+      <p>Material changes will be reflected by a new effective date on this page and, when appropriate, described with an app update.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>The developer is David Izquierdo. Privacy questions can currently be filed through the <a href="https://github.com/davidizki/what-holds-support/issues/new?template=privacy.yml">public What Holds privacy-question form</a>. GitHub sign-in is required and the request will be public, so do not include private captured content or credentials.</p>
+    </section>
+  </article>
 </main>
+
+<footer class="site-footer">
+  <div><strong>What Holds</strong><span>© 2026 David Izquierdo</span></div>
+  <nav aria-label="Footer navigation">
+    <a href="index.html">Product</a>
+    <a href="support.html">Support</a>
+    <a href="privacy.html" aria-current="page">Privacy</a>
+  </nav>
+</footer>
 </body>
 </html>

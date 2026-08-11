@@ -1,0 +1,20 @@
+name: Check public website
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  static-site:
+    name: Links, metadata, and privacy boundaries
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out website
+        uses: actions/checkout@v5
+
+      - name: Validate static pages
+        run: python3 scripts/check_site.py

@@ -50,7 +50,7 @@
     <section id="on-device">
       <h2>Data stored on your device</h2>
       <p>Captured sources, knowledge notes, claims, review cards, review history, preferences, and local search data are stored in the app container. Share extensions use the app’s private shared container only to hand selected content to the main app.</p>
-      <p>Apple on-device Foundation Model processing, local source-grounding checks and bounded passage repair for Summary, extractive processing for longer eligible sources, and the deterministic engine run on the device. What Holds does not send their prompts or results to the developer. Ask is also an extractive search over the local library and does not call a model service.</p>
+      <p>Apple on-device Foundation Model processing—including reasoning over retrieved Fact-check evidence—local source-grounding checks and bounded passage repair for Summary, extractive processing for longer eligible sources, and the deterministic engine run on the device. What Holds does not send their prompts or results to the developer. Ask is also an extractive search over the local library and does not call a model service.</p>
       <p>On supported system-26 devices, Apple SpeechAnalyzer and SpeechTranscriber process imported or publisher-provided audio on device. The transcriber modules do not send the voice audio to Apple servers. The system may contact Apple to check for or install the selected language asset.</p>
     </section>
 
@@ -88,16 +88,16 @@
               <td>To make the selected on-device transcriber available</td>
             </tr>
             <tr>
-              <th scope="row">Run LLM web-research Fact-check</th>
+              <th scope="row">Run optional broader web-research Fact-check</th>
               <td>The source title, URL when present, acquired source material or source-spanning extracts, research instructions, and the separately saved OpenAI Platform API key as an authorization credential</td>
               <td>OpenAI and the live-web sources its search tool requests</td>
               <td>To identify source-grounded claims, search current sources, compare evidence, and return citations</td>
             </tr>
             <tr>
-              <th scope="row">Run the limited Fact-check fallback</th>
+              <th scope="row">Retrieve Automatic Fact-check evidence</th>
               <td>A search query containing up to the first 16 words of each selected claim</td>
               <td>The public English Wikipedia API operated by the Wikimedia Foundation</td>
-              <td>To locate one preliminary reference when LLM web research is not enabled</td>
+              <td>To locate preliminary evidence that Apple assesses on device when ready, or the app evaluates deterministically otherwise</td>
             </tr>
             <tr>
               <th scope="row">Use a custom model endpoint</th>
@@ -115,9 +115,9 @@
         </table>
       </div>
 
-      <h3>Fact-check has two clearly labelled research routes</h3>
-      <p>LLM web research begins only after you save an OpenAI Platform API key and affirmatively approve a disclosure naming OpenAI and the material sent. The request goes to OpenAI’s Responses API, sets response storage to false, and requires live web search. OpenAI and sites selected by its search tool may receive ordinary request and connection information under their own terms and privacy policies; OpenAI API charges apply. This feature does not connect to a ChatGPT account or subscription. The key is stored separately in Apple Keychain from any custom-endpoint token.</p>
-      <p>Without that approval, the English Wikipedia API receives only the short claim query described above. What Holds stores the returned page title, URL, and excerpt locally with the note. Wikimedia’s handling of requests is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>. Both routes are automated and non-exhaustive, and an absent result is not proof that a claim is false.</p>
+      <h3>Fact-check has an Apple-first default and an optional broader route</h3>
+      <p>Automatic sends only the short claim query described above to the English Wikipedia API. What Holds stores the returned page title, URL, and excerpt locally, then Apple Intelligence reasons over the evidence on device when ready; deterministic evaluation takes over otherwise. Wikimedia’s handling of requests is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>.</p>
+      <p>Broader LLM web research begins only after you save an OpenAI Platform API key and affirmatively approve a disclosure naming OpenAI and the material sent. The request goes to OpenAI’s Responses API, sets response storage to false, and requires live web search. OpenAI and sites selected by its search tool may receive ordinary request and connection information under their own terms and privacy policies; OpenAI API charges apply. This feature does not connect to a ChatGPT account or subscription. The key is stored separately in Apple Keychain from any custom-endpoint token. All Fact-check routes are automated and non-exhaustive, and an absent result is not proof that a claim is false.</p>
 
       <h3>Custom model endpoints are an advanced override</h3>
       <p>Custom model processing is not required and is not a connection to a ChatGPT subscription. It begins only after you enable an endpoint in Advanced settings with a clear disclosure that the acquired source and any saved API token used as an authorization credential will be sent there. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in endpoint URLs. Changing the normalized destination clears the saved token and requires new consent. The endpoint’s own operator—not What Holds—controls its retention, logging, training, security, and deletion practices. Review that provider’s policy before enabling it. A local endpoint can keep inference on hardware you control.</p>

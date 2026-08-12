@@ -59,7 +59,7 @@
       <dl class="status-list">
         <div>
           <dt>On-device intelligence ready</dt>
-          <dd>Apple’s Foundation Model is available, supports the language, and can be used automatically for eligible Concept, Summary, Analysis, and Copy processing. Copy uses the model only for tags and its review card; the Copy body remains exact.</dd>
+          <dd>Apple’s Foundation Model is available, supports the language, and can be used automatically for every eligible mode. Fact-check asks it to reason over retrieved evidence excerpts; Copy uses it only for tags and its review card, while the Copy body remains exact.</dd>
         </div>
         <div>
           <dt>Turn on Apple Intelligence for richer processing</dt>
@@ -106,15 +106,14 @@
 
     <section id="fact-check">
       <h2>Know what Fact-check can and cannot establish</h2>
-      <p>The recommended route is <strong>LLM web research</strong>. After separate consent, an OpenAI reasoning model reads the acquired source material, identifies material claims using source-grounded wording, searches the live web, compares current evidence, and returns clickable citations. What Holds keeps only links reported by that search response. The model performs the research; the cited sources are the evidence.</p>
-      <p>To enable it, open What Holds Settings, expand <strong>Fact-check web research · Recommended</strong>, enter an OpenAI model and OpenAI Platform API key, save the key, then review and accept the disclosure. Platform API usage is billed separately by OpenAI and cannot be connected to a ChatGPT subscription. The app stores this key in a separate Keychain record and sends requests with response storage disabled.</p>
-      <p>Without that setup, Fact-check remains usable through the visibly labelled <strong>Public evidence scan</strong>, which searches the public English Wikipedia API with no more than the first 16 words of selected claim text. This fallback is deliberately limited.</p>
-      <p><strong>Unsupported</strong> means the selected research route did not find corroboration. It does not prove the claim false. Both routes are automated research aids—not exhaustive research, professional verification, or universal truth scores—so open the citations and consult relevant primary or specialist sources before an important decision.</p>
+      <p>The default is <strong>Automatic Apple-first Fact-check</strong>. What Holds selects exact material claim wording, searches the public English Wikipedia API with no more than the first 16 words of each claim, and keeps the returned excerpts and links as a deliberately limited evidence set. When Apple Intelligence is ready, Apple’s on-device model reasons over that evidence; otherwise the <strong>Public evidence scan</strong> evaluates it deterministically. The app—not the model—attaches the claim wording and citations.</p>
+      <p>For a broader current-web search, expand <strong>Broader Fact-check research · Optional</strong> in Settings, enter an OpenAI model and OpenAI Platform API key, save the key, then review and accept the disclosure. This explicit override lets an OpenAI reasoning model search live sources and return citations that What Holds verifies against the search response. Platform API usage is billed separately by OpenAI and cannot be connected to a ChatGPT subscription. The app stores this key in a separate Keychain record and sends requests with response storage disabled.</p>
+      <p><strong>Unsupported</strong> means the selected research route did not find corroboration. It does not prove the claim false. All routes are automated research aids—not exhaustive research, professional verification, or universal truth scores—so open the citations and consult relevant primary or specialist sources before an important decision.</p>
     </section>
 
     <section id="custom-endpoint">
       <h2>Use a custom model endpoint only when you intend to</h2>
-      <p>The Advanced processing controls accept an OpenAI-compatible base URL, model identifier, and optional API token. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in the endpoint URL. The separate token is sent only to that destination as an authorization credential; changing the normalized destination clears it and requires new consent. Enabling this route overrides automatic Apple/deterministic processing for Concept, Summary, Analysis, and Copy. Fact-check uses its separate web-research or limited-fallback route.</p>
+      <p>The Advanced processing controls accept an OpenAI-compatible base URL, model identifier, and optional API token. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in the endpoint URL. The separate token is sent only to that destination as an authorization credential; changing the normalized destination clears it and requires new consent. Enabling this route overrides automatic Apple/deterministic processing for Concept, Summary, Analysis, and Copy. Fact-check remains Apple-first unless its separate broader-research override is enabled.</p>
       <ul>
         <li>The full acquired title, URL, source text, and processing instructions go to the configured endpoint.</li>
         <li>The token is stored in Apple Keychain and is not included in a library export.</li>
@@ -136,7 +135,7 @@
         <li>Open Review to reveal and rate a card.</li>
         <li>Open Ask and search the local library; every result links back to its supporting note.</li>
       </ol>
-      <p>Fresh installs use the limited Wikipedia Fact-check fallback, so no key is required for core review. The separately consented OpenAI web-research route and the custom endpoint remain optional and are not needed for Simulator review.</p>
+      <p>Fresh installs use Automatic Fact-check. On Simulator, its limited Wikipedia evidence is evaluated through the visibly labelled Public evidence scan; on an eligible device Apple reasons over that evidence on device. No key is required. The separately consented broader OpenAI route and custom endpoint remain optional and are not needed for review.</p>
     </section>
 
     <section id="contact">

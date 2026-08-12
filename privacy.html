@@ -65,9 +65,9 @@
           <tbody>
             <tr>
               <th scope="row">Retrieve a web source</th>
-              <td>The normal web request for the URL you chose</td>
-              <td>The source website and its infrastructure</td>
-              <td>To acquire the page you asked to capture</td>
+              <td>The normal web request for the URL you chose; if its first response is only an app shell, one bounded non-persistent rendered-page request and the page’s ordinary embedded-resource requests</td>
+              <td>The source website, embedded-resource hosts it selects, and their infrastructure</td>
+              <td>To acquire the public page you asked to capture without retaining WebKit cookies or website data</td>
             </tr>
             <tr>
               <th scope="row">Retrieve YouTube captions</th>
@@ -117,7 +117,7 @@
       <p>Endpoint credentials are stored in Apple Keychain and are excluded from library exports, shared notes, screenshots, and the public support site. Disable the endpoint to stop future requests; contact its operator about any data it already received.</p>
 
       <h3>Source retrieval is not background collection</h3>
-      <p>Article, caption, feed, transcript, and audio requests happen because you selected that source. YouTube acquisition retrieves caption text only and does not download the video or audio. A publisher audio response is held in a temporary file only for on-device transcription and is removed after success, failure, or cancellation.</p>
+      <p>Article, caption, feed, transcript, and audio requests happen because you selected that source. If ordinary article extraction finds only an app shell, What Holds may render that same public URL once in a non-persistent WebKit session for no more than 15 seconds. The selected site and its embedded-resource hosts receive normal browser requests, but the app does not retain WebKit cookies or website data. Rendering does not bypass sign-in, paywall, CAPTCHA, anti-bot, or publisher restrictions. YouTube acquisition retrieves caption text only and does not download the video or audio. A publisher audio response is held in a temporary file only for on-device transcription and is removed after success, failure, or cancellation.</p>
     </section>
 
     <section id="retention">

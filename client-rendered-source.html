@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="A controlled public client-rendered source used to verify What Holds webpage acquisition.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What Holds client-rendered source check">
+  <meta property="og:description" content="A controlled public page whose substantive article appears only after JavaScript runs.">
+  <meta property="og:url" content="https://davidizki.github.io/what-holds-support/client-rendered-source.html">
+  <title>What Holds — Client-rendered source check</title>
+  <link rel="canonical" href="https://davidizki.github.io/what-holds-support/client-rendered-source.html">
+  <link rel="icon" href="site-icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="What Holds home">
+      <img src="site-icon.svg" alt="" width="34" height="34">
+      <span>What Holds</span>
+    </a>
+  </header>
+
+  <main class="document-shell" id="rendered-source">
+    <p class="eyebrow">Public rendering check</p>
+    <h1>Preparing the client-rendered article…</h1>
+    <p class="lede">The substantive source is added by this page after JavaScript runs.</p>
+  </main>
+
+  <footer class="site-footer">
+    <span>Controlled What Holds acceptance source</span>
+  </footer>
+
+  <script>
+    window.setTimeout(() => {
+      document.querySelector("#rendered-source").innerHTML = `
+        <article>
+          <p class="eyebrow">Controlled public source</p>
+          <h1>Client-rendered evidence remains inspectable</h1>
+          <p>A reliable capture system should distinguish the source it fetched from the note it later creates. This controlled article does not exist in the server-delivered body as readable prose; JavaScript inserts it after the page loads.</p>
+          <p>The rendered evidence records context, measurements, assumptions, limitations, calibration choices, alternative explanations, and follow-up questions. Keeping those details attached lets a reader inspect the basis of a summary instead of trusting an unsupported title or loading screen.</p>
+          <p>What Holds uses this public page only as an acceptance fixture. A successful capture must contain this article, omit the temporary preparing message, identify rendered webpage acquisition, and preserve the canonical source URL.</p>
+        </article>`;
+    }, 450);
+  </script>
+</body>
+</html>

@@ -6,7 +6,13 @@ from urllib.parse import urlsplit
 
 
 ROOT = Path(__file__).resolve().parents[1]
-PAGES = [ROOT / "index.html", ROOT / "support.html", ROOT / "privacy.html", ROOT / "404.html"]
+PAGES = [
+    ROOT / "index.html",
+    ROOT / "support.html",
+    ROOT / "privacy.html",
+    ROOT / "client-rendered-source.html",
+    ROOT / "404.html",
+]
 
 
 class PageParser(HTMLParser):
@@ -75,8 +81,8 @@ for page in PAGES:
             if not any(tag == "meta" and attrs.get("property") == property_name and attrs.get("content") for tag, attrs in parser.attrs):
                 fail(f"{page.name} is missing {property_name}")
     for tag, attrs in parser.attrs:
-        if tag == "img" and not attrs.get("alt"):
-            fail(f"{page.name} has an image without alt text")
+        if tag == "img" and "alt" not in attrs:
+            fail(f"{page.name} has an image without an alt attribute")
 
 for page, parser in parsed.items():
     for href in parser.hrefs:

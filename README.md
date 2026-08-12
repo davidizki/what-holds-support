@@ -8,7 +8,7 @@ Public product, support, and privacy pages for the What Holds iPhone, iPad, and 
 
 ## Deployment
 
-GitHub Pages publishes the repository root from `main` with HTTPS enforcement. The site is static HTML and CSS with no JavaScript, advertising, or analytics.
+GitHub Pages publishes the repository root from `main` with HTTPS enforcement. The product, support, privacy, and error pages are static HTML and CSS with no JavaScript, advertising, or analytics. One unlisted, `noindex` acceptance fixture uses a short inline script to prove that What Holds can acquire a public article whose text appears only after client-side rendering; it sends no analytics or user data.
 
 ## Local verification
 

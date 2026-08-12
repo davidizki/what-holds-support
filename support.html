@@ -80,7 +80,7 @@
     <section id="capture">
       <h2>Capture help</h2>
       <h3>A link will not load</h3>
-      <p>Only public HTTP and HTTPS pages are supported. Paywalls, sign-in walls, anti-bot systems, client-rendered pages, or a site’s own restrictions can prevent extraction. Paste text or import a supported file when you have the right to do so.</p>
+      <p>Only public HTTP and HTTPS pages are supported. What Holds first reads the ordinary page response. If that is only an app shell, it makes one bounded attempt to render the same page on device without retaining cookies or website data. The site and its embedded-resource hosts still receive ordinary page requests. Paywalls, sign-in walls, CAPTCHAs, anti-bot systems, unsupported scripts, or a site’s own restrictions can still prevent extraction; the app does not bypass them. Paste text or import a supported file when you have the right to do so.</p>
       <h3>A YouTube video has no usable transcript</h3>
       <p>What Holds uses available public caption text and never downloads YouTube video or audio. If the creator disabled captions, the selected language is unavailable, or YouTube does not return usable captions, the app stops without guessing from the title or page footer. In YouTube, open <strong>Show transcript</strong>, copy the transcript when available, and capture it as Text. Use the Audio &amp; caption language control when you need a specific available caption track.</p>
       <h3>A podcast or audio link does not transcribe</h3>

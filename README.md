@@ -2,6 +2,8 @@
 
 Public product, support, and privacy pages for the What Holds iPhone, iPad, and Mac app.
 
+`app-icon.png` is the shared product mark copied from the app repository's 256-pixel shipping icon. Update the app icon first, then replace this file in the same release so the app, in-app navigation, website header, and browser icon remain one identity.
+
 - Product: <https://davidizki.github.io/what-holds-support/>
 - Support: <https://davidizki.github.io/what-holds-support/support.html>
 - Privacy: <https://davidizki.github.io/what-holds-support/privacy.html>

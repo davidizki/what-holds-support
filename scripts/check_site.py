@@ -104,7 +104,7 @@ for page, parser in parsed.items():
             if split.fragment not in target_parser.ids:
                 fail(f"{page.name} links to missing fragment: {href}")
 
-if not (ROOT / "styles.css").is_file() or not (ROOT / "site-icon.svg").is_file():
+if not (ROOT / "styles.css").is_file() or not (ROOT / "app-icon.png").is_file():
     fail("stylesheet or site icon is missing")
 
 privacy_text = (ROOT / "privacy.html").read_text(encoding="utf-8")

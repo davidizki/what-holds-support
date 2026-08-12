@@ -98,16 +98,11 @@ main {
 .brand strong { font-size: 1.05rem; }
 .brand small { color: var(--muted); }
 .mark {
-  display: grid;
   width: 46px;
   height: 46px;
-  place-items: center;
   border-radius: 13px;
-  background: #061325;
-  color: #eef4df;
+  object-fit: cover;
   box-shadow: 0 8px 18px rgb(6 19 37 / 20%);
-  font-size: 1.4rem;
-  font-weight: 800;
 }
 .site-header nav,
 .site-footer nav {

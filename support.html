@@ -106,7 +106,7 @@
 
     <section id="fact-check">
       <h2>Know what Fact-check can and cannot establish</h2>
-      <p>The default is <strong>Automatic Apple-first Fact-check</strong>. What Holds selects important claims from the source and searches the public English Wikipedia API using no more than the first 16 words of each claim. When Apple Intelligence is ready, it compares the claim with the returned excerpts on your device; otherwise the <strong>Public evidence scan</strong> uses the app’s built-in checks. What Holds—not the model—keeps the exact claim wording and links.</p>
+      <p>The default is <strong>Automatic Apple-first Fact-check</strong>. Apple Intelligence turns noisy source captions into readable claims while What Holds keeps the matching raw wording available under <strong>Captured wording</strong>. Instead of searching the first words of a caption, the app plans a small set of relevant research concepts and searches English Wikipedia, cross-domain scholarly abstracts from Crossref, and biomedical literature from Europe PMC when appropriate. Several candidates are checked for the same subject and outcome before Apple reasons over the evidence on your device. Otherwise the <strong>Public evidence scan</strong> shows relevant references without treating word overlap as proof.</p>
       <p>For a wider search of current web sources, expand <strong>Broader Fact-check research · Optional</strong> in Settings, enter an OpenAI model and OpenAI Platform API key, save the key, then review and accept the disclosure. An OpenAI reasoning model can then search live sources and return links that What Holds checks against the search response. OpenAI bills API usage separately, and a ChatGPT subscription cannot be used instead. The app stores the key separately in Apple Keychain and asks OpenAI not to store the response.</p>
       <p><strong>Unsupported</strong> means the selected method did not find enough supporting evidence. It does not prove the claim false. Every option is an automated research aid—not exhaustive research or professional verification—so open the links and consult relevant primary or specialist sources before an important decision.</p>
     </section>
@@ -135,7 +135,7 @@
         <li>Open Review to reveal and rate a card.</li>
         <li>Open Ask and search the local library; every result links back to its supporting note.</li>
       </ol>
-      <p>Fresh installs use Automatic Fact-check. On Simulator, the visibly labelled Public evidence scan checks the limited Wikipedia evidence; on an eligible device Apple Intelligence compares the claim and evidence on device. No key is required. Broader OpenAI research and custom models are optional and are not needed for review.</p>
+      <p>Fresh installs use Automatic Fact-check. On Simulator, the visibly labelled Public evidence scan retrieves bounded public reference and scholarly evidence but leaves it unresolved without a language model; on an eligible device Apple Intelligence creates readable source-grounded claims and reasons over the relevant excerpts on device. No key is required. Broader OpenAI research and custom models are optional and are not needed for review.</p>
     </section>
 
     <section id="contact">

@@ -154,7 +154,7 @@
     <ol class="route-list">
       <li>
         <strong>Apple on-device intelligence</strong>
-        <span>When Apple Intelligence is available, What Holds uses it on your device to understand the source and build the note. For Fact-check, it compares selected claims with evidence found by the app.</span>
+        <span>When Apple Intelligence is available, What Holds uses it on your device to understand the source and build the note. For Fact-check, it cleans noisy source wording, keeps the raw fragment visible, and reasons over evidence found by the app.</span>
       </li>
       <li>
         <strong>Built-in on-device processing</strong>
@@ -162,7 +162,7 @@
       </li>
       <li>
         <strong>Links before confident answers</strong>
-        <span>The standard Fact-check looks for relevant pages in English Wikipedia before judging a claim. Optional OpenAI research can search the wider web. In both cases, the links are the evidence—not simply what a model says.</span>
+        <span>Automatic Fact-check retrieves relevant general-reference, cross-domain scholarly, and biomedical evidence before judging a claim. Optional OpenAI research can search the wider live web. In both cases, the links are the evidence—not simply what a model says.</span>
       </li>
     </ol>
     <aside class="notice" aria-label="Apple Intelligence availability">
@@ -202,7 +202,7 @@
       <div><dt>Built-in processing</dt><dd>On device</dd></div>
       <div><dt>Ask your library</dt><dd>On device</dd></div>
       <div><dt>Web capture</dt><dd>Selected source site</dd></div>
-      <div><dt>Automatic Fact-check</dt><dd>Wikipedia evidence, Apple reasoning on device</dd></div>
+      <div><dt>Automatic Fact-check</dt><dd>Public reference and scholarly evidence, Apple reasoning on device</dd></div>
       <div><dt>Broader Fact-check</dt><dd>Optional OpenAI plus live web sources</dd></div>
       <div><dt>Custom model</dt><dd>Your configured endpoint</dd></div>
     </dl>
@@ -225,7 +225,7 @@
     </details>
     <details>
       <summary>Is Fact-check a professional verification service?</summary>
-      <p>No. Automatic Fact-check asks Apple Intelligence to compare claims with a small set of public evidence when it is available; the app’s built-in checks take over otherwise. Optional OpenAI research can search more current web sources and save clickable citations. Both are research aids: “Unsupported” means the selected method did not find enough supporting evidence, not that the claim is proven false.</p>
+      <p>No. Automatic Fact-check asks Apple Intelligence to form readable claims grounded in the raw source and compare them with a small, relevance-filtered set of public reference and scholarly evidence. The app’s built-in scan takes over otherwise but does not infer truth from word overlap. Optional OpenAI research can search more current web sources and save clickable citations. Both are research aids: “Unsupported” means the selected method did not find enough supporting evidence, not that the claim is proven false.</p>
     </details>
     <details>
       <summary>Does the first version sync between devices?</summary>

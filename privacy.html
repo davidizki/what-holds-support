@@ -50,7 +50,7 @@
     <section id="on-device">
       <h2>Data stored on your device</h2>
       <p>Captured sources, notes, claims, review cards, review history, preferences, and search data are kept in the app’s private storage on your device. The share extension uses that same private storage only to hand something you selected to the main app.</p>
-      <p>Apple’s on-device Foundation Model can create notes and compare Fact-check claims with retrieved evidence on your device. What Holds also checks summaries against the source, can repair a weak section from the closest source passage, and uses built-in methods for longer sources or whenever Apple Intelligence is unavailable. It does not send prompts or results from these methods to the developer. Ask searches the local library without calling a model service.</p>
+      <p>Apple’s on-device Foundation Model can create notes and compare Fact-check claims with retrieved evidence on your device. For Fact-check it creates readable claims grounded in exact raw source wording; both that raw wording and the complete acquired source remain available to you. What Holds also checks summaries against the source, can repair a weak section from the closest source passage, and uses built-in methods for longer sources or whenever Apple Intelligence is unavailable. It does not send prompts or results from these methods to the developer. Ask searches the local library without calling a model service.</p>
       <p>On supported system-26 devices, Apple SpeechAnalyzer and SpeechTranscriber process imported or publisher-provided audio on device. The transcriber modules do not send the voice audio to Apple servers. The system may contact Apple to check for or install the selected language asset.</p>
     </section>
 
@@ -95,9 +95,9 @@
             </tr>
             <tr>
               <th scope="row">Retrieve Automatic Fact-check evidence</th>
-              <td>A search query containing up to the first 16 words of each selected claim</td>
-              <td>The public English Wikipedia API operated by the Wikimedia Foundation</td>
-              <td>To find preliminary evidence that Apple Intelligence compares on device when ready, or the app checks with built-in rules otherwise</td>
+              <td>At most 12 source-grounded research words per selected claim, plus deterministic domain synonyms; not the full source or a raw caption prefix</td>
+              <td>English Wikipedia, Crossref, and, for biomedical claims, Europe PMC</td>
+              <td>To retrieve several preliminary candidates, reject those that miss the claim’s subject or outcome, and give Apple Intelligence at most three relevant excerpts to compare on device</td>
             </tr>
             <tr>
               <th scope="row">Use a custom model endpoint</th>
@@ -116,7 +116,7 @@
       </div>
 
       <h3>Fact-check has an Apple-first default and an optional broader route</h3>
-      <p>Automatic sends only the short claim query described above to the English Wikipedia API. What Holds stores the returned page title, URL, and excerpt locally. Apple Intelligence compares that evidence with the claim on device when ready; the app’s built-in checks take over otherwise. Wikimedia’s handling of requests is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>.</p>
+      <p>Automatic keeps the full source on device and sends only the bounded research concepts described above to English Wikipedia, Crossref, and, for biomedical topics, Europe PMC. What Holds stores the relevance-filtered title, URL, and excerpt locally. Apple Intelligence creates a readable claim grounded in exact raw wording and compares at most three relevant excerpts on device when ready; the app’s built-in scan takes over otherwise and leaves references unresolved rather than treating topical overlap as proof. Request handling is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>, <a href="https://www.crossref.org/privacy/">Crossref Privacy Policy</a>, and the <a href="https://www.ebi.ac.uk/data-protection/privacy-notice/embl-ebi-public-website">EMBL-EBI privacy notice</a> for Europe PMC.</p>
       <p>Broader LLM web research begins only after you save an OpenAI Platform API key and approve a clear explanation of what will be sent to OpenAI. The request goes to OpenAI’s Responses API, asks OpenAI not to store the response, and uses live web search. OpenAI and the websites it searches may receive normal request and connection information under their own terms and privacy policies; OpenAI API charges apply. This feature does not connect to a ChatGPT account or subscription. The key is stored separately in Apple Keychain from any custom-model token. Every Fact-check option is automated and incomplete, and finding no result does not prove a claim false.</p>
 
       <h3>Custom model endpoints are an advanced override</h3>

@@ -8,7 +8,7 @@
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1510">
   <meta property="og:type" content="website">
   <meta property="og:title" content="What Holds — Support">
-  <meta property="og:description" content="Capture, backup, processing, fact-check, and custom-endpoint help for What Holds.">
+  <meta property="og:description" content="Practical help with saving sources, backups, Fact-check, Apple Intelligence, and optional custom models.">
   <meta property="og:url" content="https://davidizki.github.io/what-holds-support/support.html">
   <title>What Holds — Support</title>
   <link rel="canonical" href="https://davidizki.github.io/what-holds-support/support.html">
@@ -34,7 +34,7 @@
   <header class="document-header">
     <p class="eyebrow">Support without a What Holds account</p>
     <h1>Help that respects your library.</h1>
-    <p class="lede">Troubleshoot capture and processing without sending your private sources to the developer. Start with the guidance below; include only non-sensitive diagnostic details in a public support request.</p>
+    <p class="lede">Get help without creating a What Holds account or sending your private sources to the developer. If you use the public support form, include only details you are comfortable sharing publicly.</p>
     <div class="actions">
       <a class="button" href="#contact">Contact support</a>
       <a class="button secondary" href="privacy.html">Review privacy</a>
@@ -43,7 +43,7 @@
 
   <nav class="document-nav" aria-label="Support sections">
     <strong>On this page</strong>
-    <a href="#processing">Processing routes</a>
+    <a href="#processing">How notes are made</a>
     <a href="#capture">Capture help</a>
     <a href="#backup">Backup and deletion</a>
     <a href="#fact-check">Fact-check limits</a>
@@ -54,8 +54,8 @@
 
   <article class="document-content">
     <section id="processing">
-      <h2>Understand the processing status</h2>
-      <p>Automatic processing needs no setup. The capture screen shows the expected route, and the saved note shows the route that actually completed the work.</p>
+      <h2>Understand how a note was made</h2>
+      <p>Automatic processing needs no setup. Before saving, the app shows what it expects to use. Afterwards, the note shows what actually made it.</p>
       <dl class="status-list">
         <div>
           <dt>On-device intelligence ready</dt>
@@ -63,15 +63,15 @@
         </div>
         <div>
           <dt>Turn on Apple Intelligence for richer processing</dt>
-          <dd>On iPhone or iPad, open Settings; on Mac, open System Settings. Then choose Apple Intelligence &amp; Siri. What Holds already works through its private deterministic engine, so enabling this is optional.</dd>
+          <dd>On iPhone or iPad, open Settings; on Mac, open System Settings. Then choose Apple Intelligence &amp; Siri. What Holds already works with its private built-in processing, so enabling this is optional.</dd>
         </div>
         <div>
           <dt>Apple Intelligence is getting ready</dt>
-          <dd>The system model may still be downloading. Keep the device powered and connected as appropriate, then use Check again. Captures continue through the deterministic fallback meanwhile.</dd>
+          <dd>Apple Intelligence may still be downloading. Keep the device powered and connected as appropriate, then use Check again. What Holds continues with its built-in processing in the meantime.</dd>
         </div>
         <div>
           <dt>Standard processing is ready</dt>
-          <dd>The operating system, hardware, region, or language is not eligible. No action is required; the built-in deterministic route remains available.</dd>
+          <dd>The operating system, hardware, region, or language is not eligible. No action is required; the standard built-in option remains available.</dd>
         </div>
       </dl>
       <aside class="notice"><strong>Compatibility:</strong> What Holds supports iOS/iPadOS 17 or later and macOS 14 or later. Apple’s on-device generation requires additional Apple Intelligence eligibility and iOS/iPadOS/macOS 26 or later.</aside>
@@ -80,15 +80,15 @@
     <section id="capture">
       <h2>Capture help</h2>
       <h3>A link will not load</h3>
-      <p>Only public HTTP and HTTPS links are accepted. An HTTP link is upgraded to HTTPS before any request; an HTTP-only site is rejected rather than weakening Apple’s transport security. What Holds first reads the ordinary secure page response. If that is only an app shell, it makes one bounded attempt to render the same page on device without retaining cookies or website data. The site and its embedded-resource hosts still receive ordinary page requests. Paywalls, sign-in walls, CAPTCHAs, anti-bot systems, unsupported scripts, or a site’s own restrictions can still prevent extraction; the app does not bypass them. Paste text or import a supported file when you have the right to do so.</p>
+      <p>Only public web links are accepted. What Holds uses a secure HTTPS connection and rejects a site that works only over plain HTTP. It first reads the normal page; if the article loads later, the app can briefly open the same page without keeping its cookies or website data. The website still receives the normal requests needed to display it. Paywalls, login screens, CAPTCHAs, anti-bot systems, unsupported scripts, or the publisher’s own restrictions can prevent access; the app does not bypass them. Paste text or import a supported file when you have the right to do so.</p>
       <h3>A YouTube video has no usable transcript</h3>
       <p>What Holds uses available public caption text and never downloads YouTube video or audio. If the creator disabled captions, the selected language is unavailable, or YouTube does not return usable captions, the app stops without guessing from the title or page footer. In YouTube, open <strong>Show transcript</strong>, copy the transcript when available, and capture it as Text. Use the Audio &amp; caption language control when you need a specific available caption track.</p>
       <h3>A podcast or audio link does not transcribe</h3>
-      <p>The app prefers a publisher or Podcasting 2.0 transcript. Otherwise it can follow a publisher-provided audio link and transcribe supported audio on device on system version 26 or later. Audio may be up to 250 MB. Keep the device connected while any required Apple language assets install, choose the spoken language when automatic detection is wrong, and retry. Publisher restrictions or unsupported audio can still prevent acquisition.</p>
+      <p>The app prefers a publisher or Podcasting 2.0 transcript. Otherwise it can follow a publisher-provided audio link and transcribe supported audio on device on system version 26 or later. Audio may be up to 250 MB. Keep the device connected while any required Apple language assets install, choose the spoken language when automatic detection is wrong, and retry. Publisher restrictions or unsupported audio can still prevent access.</p>
       <h3>A file is rejected</h3>
       <p>Supported documents are PDF, plain text, Markdown, HTML, and RTF, up to 30 MB. Supported audio files use the system audio decoder and may be up to 250 MB on system version 26 or later. Image-only scans need selectable text before What Holds can process them.</p>
       <h3>The note looks incomplete</h3>
-      <p>What Holds should show an error instead of silently saving title text, controls, or another empty/partial acquisition. In the saved note, compare the separate acquisition and processing labels, then choose <strong>View acquired source</strong> to inspect the complete stored input. Older YouTube captures that contain only page controls show a recapture warning. Try a pasted-text capture to separate source-access problems from processing problems.</p>
+      <p>What Holds should show an error instead of quietly saving a title, page controls, or other incomplete text. In the saved note, check where the source came from and how the note was made, then choose <strong>View acquired source</strong> to inspect the complete stored text. Older YouTube captures that contain only page controls show a recapture warning. Try pasting some text directly to find out whether the problem is reading the source or making the note.</p>
       <h3>The share extension queued an item</h3>
       <p>Open What Holds and check Inbox. The extension hands the item to the main app; the capture is processed only after you choose its treatment.</p>
     </section>
@@ -106,19 +106,19 @@
 
     <section id="fact-check">
       <h2>Know what Fact-check can and cannot establish</h2>
-      <p>The default is <strong>Automatic Apple-first Fact-check</strong>. What Holds selects exact material claim wording, searches the public English Wikipedia API with no more than the first 16 words of each claim, and keeps the returned excerpts and links as a deliberately limited evidence set. When Apple Intelligence is ready, Apple’s on-device model reasons over that evidence; otherwise the <strong>Public evidence scan</strong> evaluates it deterministically. The app—not the model—attaches the claim wording and citations.</p>
-      <p>For a broader current-web search, expand <strong>Broader Fact-check research · Optional</strong> in Settings, enter an OpenAI model and OpenAI Platform API key, save the key, then review and accept the disclosure. This explicit override lets an OpenAI reasoning model search live sources and return citations that What Holds verifies against the search response. Platform API usage is billed separately by OpenAI and cannot be connected to a ChatGPT subscription. The app stores this key in a separate Keychain record and sends requests with response storage disabled.</p>
-      <p><strong>Unsupported</strong> means the selected research route did not find corroboration. It does not prove the claim false. All routes are automated research aids—not exhaustive research, professional verification, or universal truth scores—so open the citations and consult relevant primary or specialist sources before an important decision.</p>
+      <p>The default is <strong>Automatic Apple-first Fact-check</strong>. What Holds selects important claims from the source and searches the public English Wikipedia API using no more than the first 16 words of each claim. When Apple Intelligence is ready, it compares the claim with the returned excerpts on your device; otherwise the <strong>Public evidence scan</strong> uses the app’s built-in checks. What Holds—not the model—keeps the exact claim wording and links.</p>
+      <p>For a wider search of current web sources, expand <strong>Broader Fact-check research · Optional</strong> in Settings, enter an OpenAI model and OpenAI Platform API key, save the key, then review and accept the disclosure. An OpenAI reasoning model can then search live sources and return links that What Holds checks against the search response. OpenAI bills API usage separately, and a ChatGPT subscription cannot be used instead. The app stores the key separately in Apple Keychain and asks OpenAI not to store the response.</p>
+      <p><strong>Unsupported</strong> means the selected method did not find enough supporting evidence. It does not prove the claim false. Every option is an automated research aid—not exhaustive research or professional verification—so open the links and consult relevant primary or specialist sources before an important decision.</p>
     </section>
 
     <section id="custom-endpoint">
       <h2>Use a custom model endpoint only when you intend to</h2>
-      <p>The Advanced processing controls accept an OpenAI-compatible base URL, model identifier, and optional API token. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in the endpoint URL. The separate token is sent only to that destination as an authorization credential; changing the normalized destination clears it and requires new consent. Enabling this route overrides automatic Apple/deterministic processing for Concept, Summary, Analysis, and Copy. Fact-check remains Apple-first unless its separate broader-research override is enabled.</p>
+      <p>The Advanced settings accept an OpenAI-compatible web address, model name, and optional API token. Remote services must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Login details and extra URL parameters do not belong in the address. The separate token is sent only to the service you chose; changing that address clears the token and asks for consent again. Enabling this option replaces automatic Apple and built-in processing for Concept, Summary, Analysis, and Copy. Fact-check remains Apple-first unless you separately enable broader research.</p>
       <ul>
         <li>The full acquired title, URL, source text, and processing instructions go to the configured endpoint.</li>
         <li>The token is stored in Apple Keychain and is not included in a library export.</li>
-        <li>A ChatGPT subscription is not an API credential and cannot be connected as an account.</li>
-        <li>A local server such as Ollama can keep inference on hardware you control.</li>
+        <li>A ChatGPT subscription is not an API key and cannot be connected as an account.</li>
+        <li>A local server such as Ollama can keep the model running on hardware you control.</li>
         <li>For a remote provider, paste its HTTPS base URL and put its bearer token only in the separate API token field.</li>
         <li>On a physical iPhone, <code>localhost</code> means the iPhone—not your Mac. A Mac-hosted endpoint requires an intentionally exposed and secured network address.</li>
       </ul>
@@ -127,15 +127,15 @@
 
     <section id="reviewers">
       <h2>For Apple App Review</h2>
-      <p>No demo account, sign-in, subscription, API token, or external model is required to exercise the core product. On Simulator and devices where Apple’s model is unavailable, the deterministic fallback is the expected route.</p>
+      <p>No demo account, login, subscription, API token, or external model is required to exercise the core product. On Simulator and devices where Apple Intelligence is unavailable, standard built-in processing is expected.</p>
       <ol>
         <li>Choose Start learning on first launch.</li>
         <li>Create a Text capture with at least eight words and choose Summary.</li>
-        <li>Process and save, then open the note in Library to inspect the separate source-acquisition and processing provenance; choose View acquired source to confirm the exact stored input.</li>
+        <li>Process and save, then open the note in Library to see where the source came from and how the note was made; choose View acquired source to confirm the exact stored text.</li>
         <li>Open Review to reveal and rate a card.</li>
         <li>Open Ask and search the local library; every result links back to its supporting note.</li>
       </ol>
-      <p>Fresh installs use Automatic Fact-check. On Simulator, its limited Wikipedia evidence is evaluated through the visibly labelled Public evidence scan; on an eligible device Apple reasons over that evidence on device. No key is required. The separately consented broader OpenAI route and custom endpoint remain optional and are not needed for review.</p>
+      <p>Fresh installs use Automatic Fact-check. On Simulator, the visibly labelled Public evidence scan checks the limited Wikipedia evidence; on an eligible device Apple Intelligence compares the claim and evidence on device. No key is required. Broader OpenAI research and custom models are optional and are not needed for review.</p>
     </section>
 
     <section id="contact">

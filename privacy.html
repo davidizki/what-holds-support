@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy policy for What Holds, including on-device processing, source retrieval, optional LLM web research, the limited evidence fallback, and custom model endpoints.">
+  <meta name="description" content="What Holds works without a login or cloud copy of your library. Read what stays on your device and when the app connects to another service.">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ec">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1510">
   <meta property="og:type" content="website">
@@ -49,14 +49,14 @@
   <article class="document-content">
     <section id="on-device">
       <h2>Data stored on your device</h2>
-      <p>Captured sources, knowledge notes, claims, review cards, review history, preferences, and local search data are stored in the app container. Share extensions use the app’s private shared container only to hand selected content to the main app.</p>
-      <p>Apple on-device Foundation Model processing—including reasoning over retrieved Fact-check evidence—local source-grounding checks and bounded passage repair for Summary, extractive processing for longer eligible sources, and the deterministic engine run on the device. What Holds does not send their prompts or results to the developer. Ask is also an extractive search over the local library and does not call a model service.</p>
+      <p>Captured sources, notes, claims, review cards, review history, preferences, and search data are kept in the app’s private storage on your device. The share extension uses that same private storage only to hand something you selected to the main app.</p>
+      <p>Apple’s on-device Foundation Model can create notes and compare Fact-check claims with retrieved evidence on your device. What Holds also checks summaries against the source, can repair a weak section from the closest source passage, and uses built-in methods for longer sources or whenever Apple Intelligence is unavailable. It does not send prompts or results from these methods to the developer. Ask searches the local library without calling a model service.</p>
       <p>On supported system-26 devices, Apple SpeechAnalyzer and SpeechTranscriber process imported or publisher-provided audio on device. The transcriber modules do not send the voice audio to Apple servers. The system may contact Apple to check for or install the selected language asset.</p>
     </section>
 
     <section id="network">
       <h2>When information leaves the device</h2>
-      <p>What Holds makes no background analytics or advertising requests. Network activity occurs only for an action you select or a processing route the app identifies before it runs.</p>
+      <p>What Holds makes no background analytics or advertising requests. It connects to the internet only for an action you choose or a method the app shows before it runs.</p>
       <div class="table-wrap" role="region" aria-label="What Holds network boundaries" tabindex="0">
         <table>
           <thead>
@@ -65,13 +65,13 @@
           <tbody>
             <tr>
               <th scope="row">Retrieve a web source</th>
-              <td>An HTTP input is upgraded to HTTPS before the normal request; if its first secure response is only an app shell, one bounded non-persistent rendered-page request and the page’s ordinary embedded-resource requests</td>
-              <td>The source website, embedded-resource hosts it selects, and their infrastructure</td>
-              <td>To acquire the public page you asked to capture without retaining WebKit cookies or website data</td>
+              <td>An HTTP link is upgraded to HTTPS; if the secure page initially contains no article text, the app may briefly render it without saving cookies or website data</td>
+              <td>The source website and the services it uses to display the page</td>
+              <td>To retrieve the public page you asked to save</td>
             </tr>
             <tr>
               <th scope="row">Retrieve YouTube captions</th>
-              <td>The video ID, preferred caption language, normal watch-page request, player-client metadata, and caption-track request; no YouTube video or audio</td>
+              <td>The video ID, preferred caption language, and information needed to request the watch page and caption track; no YouTube video or audio</td>
               <td>YouTube and its infrastructure</td>
               <td>To locate and retrieve available public caption text for the video you chose</td>
             </tr>
@@ -89,21 +89,21 @@
             </tr>
             <tr>
               <th scope="row">Run optional broader web-research Fact-check</th>
-              <td>The source title, URL when present, acquired source material or source-spanning extracts, research instructions, and the separately saved OpenAI Platform API key as an authorization credential</td>
+              <td>The source title, URL when present, source material or selected passages, research instructions, and the separately saved OpenAI Platform API key to authorize the request</td>
               <td>OpenAI and the live-web sources its search tool requests</td>
-              <td>To identify source-grounded claims, search current sources, compare evidence, and return citations</td>
+              <td>To identify claims from the source, search current information, compare evidence, and return links</td>
             </tr>
             <tr>
               <th scope="row">Retrieve Automatic Fact-check evidence</th>
               <td>A search query containing up to the first 16 words of each selected claim</td>
               <td>The public English Wikipedia API operated by the Wikimedia Foundation</td>
-              <td>To locate preliminary evidence that Apple assesses on device when ready, or the app evaluates deterministically otherwise</td>
+              <td>To find preliminary evidence that Apple Intelligence compares on device when ready, or the app checks with built-in rules otherwise</td>
             </tr>
             <tr>
               <th scope="row">Use a custom model endpoint</th>
               <td>The source title, URL when present, full acquired text, processing instructions, and the endpoint credential when required</td>
               <td>The OpenAI-compatible endpoint you explicitly enable and configure</td>
-              <td>To process Concept, Summary, Analysis, or Copy metadata through that service</td>
+              <td>To make Concept, Summary, Analysis, or Copy notes with that service</td>
             </tr>
             <tr>
               <th scope="row">Export, share, or request support</th>
@@ -116,21 +116,21 @@
       </div>
 
       <h3>Fact-check has an Apple-first default and an optional broader route</h3>
-      <p>Automatic sends only the short claim query described above to the English Wikipedia API. What Holds stores the returned page title, URL, and excerpt locally, then Apple Intelligence reasons over the evidence on device when ready; deterministic evaluation takes over otherwise. Wikimedia’s handling of requests is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>.</p>
-      <p>Broader LLM web research begins only after you save an OpenAI Platform API key and affirmatively approve a disclosure naming OpenAI and the material sent. The request goes to OpenAI’s Responses API, sets response storage to false, and requires live web search. OpenAI and sites selected by its search tool may receive ordinary request and connection information under their own terms and privacy policies; OpenAI API charges apply. This feature does not connect to a ChatGPT account or subscription. The key is stored separately in Apple Keychain from any custom-endpoint token. All Fact-check routes are automated and non-exhaustive, and an absent result is not proof that a claim is false.</p>
+      <p>Automatic sends only the short claim query described above to the English Wikipedia API. What Holds stores the returned page title, URL, and excerpt locally. Apple Intelligence compares that evidence with the claim on device when ready; the app’s built-in checks take over otherwise. Wikimedia’s handling of requests is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>.</p>
+      <p>Broader LLM web research begins only after you save an OpenAI Platform API key and approve a clear explanation of what will be sent to OpenAI. The request goes to OpenAI’s Responses API, asks OpenAI not to store the response, and uses live web search. OpenAI and the websites it searches may receive normal request and connection information under their own terms and privacy policies; OpenAI API charges apply. This feature does not connect to a ChatGPT account or subscription. The key is stored separately in Apple Keychain from any custom-model token. Every Fact-check option is automated and incomplete, and finding no result does not prove a claim false.</p>
 
       <h3>Custom model endpoints are an advanced override</h3>
-      <p>Custom model processing is not required and is not a connection to a ChatGPT subscription. It begins only after you enable an endpoint in Advanced settings with a clear disclosure that the acquired source and any saved API token used as an authorization credential will be sent there. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in endpoint URLs. Changing the normalized destination clears the saved token and requires new consent. The endpoint’s own operator—not What Holds—controls its retention, logging, training, security, and deletion practices. Review that provider’s policy before enabling it. A local endpoint can keep inference on hardware you control.</p>
+      <p>Custom model processing is not required and does not connect to a ChatGPT subscription. It begins only after you enable a service in Advanced settings and approve a clear explanation that the source and any saved API token will be sent there. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Login details and extra URL parameters are rejected in the service address. Changing the address clears the saved token and requires new consent. The service operator—not What Holds—controls its retention, logging, training, security, and deletion practices. Review that provider’s policy before enabling it. A local service can keep the model running on hardware you control.</p>
       <p>Endpoint credentials are stored in Apple Keychain and are excluded from library exports, shared notes, screenshots, and the public support site. Disable the endpoint to stop future requests; contact its operator about any data it already received.</p>
 
       <h3>Source retrieval is not background collection</h3>
-      <p>Article, caption, feed, transcript, and audio requests happen because you selected that source. Public HTTP links and discovered resources are upgraded to HTTPS before any request; an HTTP-only host is rejected rather than weakening App Transport Security. If ordinary article extraction finds only an app shell, What Holds may render that same secure public URL once in a non-persistent WebKit session for no more than 15 seconds. The selected site and its embedded-resource hosts receive normal browser requests, but the app does not retain WebKit cookies or website data. Rendering does not bypass sign-in, paywall, CAPTCHA, anti-bot, or publisher restrictions. YouTube acquisition retrieves caption text only and does not download the video or audio. A publisher audio response is held in a temporary file only for on-device transcription and is removed after success, failure, or cancellation.</p>
+      <p>Article, caption, feed, transcript, and audio requests happen because you selected that source. Public HTTP links are upgraded to HTTPS before any request; a site that works only over plain HTTP is rejected. If the first page contains no article text, What Holds may briefly render the same secure page for no more than 15 seconds without keeping cookies or website data. The selected site and the services it uses still receive normal browser requests. The app does not bypass a login, paywall, CAPTCHA, anti-bot system, or publisher restriction. YouTube capture retrieves caption text only and does not download the video or audio. Publisher audio is held in a temporary file only for on-device transcription and is removed after success, failure, or cancellation.</p>
     </section>
 
     <section id="retention">
       <h2>Retention, export, and deletion</h2>
-      <p>Local library data remains until you delete an item, erase the library in Settings, or remove the app, subject to Apple platform backup behavior. Deleting a note also removes its app-managed source, claims, cards, and review history when they are no longer used elsewhere. Temporary publisher-audio downloads are removed after the acquisition attempt and are not part of the library or its backup.</p>
-      <p>You can export a versioned JSON backup or share an individual note as Markdown. Those files are then controlled by the location or service you choose. What Holds has no developer account or server-side library to delete on your behalf.</p>
+      <p>Local library data remains until you delete an item, erase the library in Settings, or remove the app, subject to Apple platform backup behavior. Deleting a note also removes its source, claims, cards, and review history when they are no longer used elsewhere. Temporary publisher-audio downloads are removed after the app finishes trying to retrieve them and are not part of the library or its backup.</p>
+      <p>You can export a JSON backup or share an individual note as Markdown. Those files are then controlled by the location or service you choose. What Holds has no user account or server copy of your library to delete on your behalf.</p>
     </section>
 
     <section id="website">

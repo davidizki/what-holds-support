@@ -81,10 +81,14 @@
       <h2>Capture help</h2>
       <h3>A link will not load</h3>
       <p>Only public HTTP and HTTPS pages are supported. Paywalls, sign-in walls, anti-bot systems, client-rendered pages, or a site’s own restrictions can prevent extraction. Paste text or import a supported file when you have the right to do so.</p>
+      <h3>A YouTube video has no usable transcript</h3>
+      <p>What Holds uses available public caption text and never downloads YouTube video or audio. If the creator disabled captions, the selected language is unavailable, or YouTube does not return usable captions, the app stops without guessing from the title or page footer. In YouTube, open <strong>Show transcript</strong>, copy the transcript when available, and capture it as Text. Use the Audio &amp; caption language control when you need a specific available caption track.</p>
+      <h3>A podcast or audio link does not transcribe</h3>
+      <p>The app prefers a publisher or Podcasting 2.0 transcript. Otherwise it can follow a publisher-provided audio link and transcribe supported audio on device on system version 26 or later. Audio may be up to 250 MB. Keep the device connected while any required Apple language assets install, choose the spoken language when automatic detection is wrong, and retry. Publisher restrictions or unsupported audio can still prevent acquisition.</p>
       <h3>A file is rejected</h3>
-      <p>Supported documents are PDF, plain text, Markdown, HTML, and RTF, up to 30 MB. Image-only scans need selectable text before What Holds can process them.</p>
+      <p>Supported documents are PDF, plain text, Markdown, HTML, and RTF, up to 30 MB. Supported audio files use the system audio decoder and may be up to 250 MB on system version 26 or later. Image-only scans need selectable text before What Holds can process them.</p>
       <h3>The note looks incomplete</h3>
-      <p>What Holds should show an error instead of silently saving an empty or partial acquisition. Try a pasted-text capture to separate source-access problems from processing problems.</p>
+      <p>What Holds should show an error instead of silently saving title text, controls, or another empty/partial acquisition. In the saved note, compare the separate acquisition and processing labels, then choose <strong>View acquired source</strong> to inspect the complete stored input. Older YouTube captures that contain only page controls show a recapture warning. Try a pasted-text capture to separate source-access problems from processing problems.</p>
       <h3>The share extension queued an item</h3>
       <p>Open What Holds and check Inbox. The extension hands the item to the main app; the capture is processed only after you choose its treatment.</p>
     </section>
@@ -125,7 +129,7 @@
       <ol>
         <li>Choose Start learning on first launch.</li>
         <li>Create a Text capture with at least eight words and choose Summary.</li>
-        <li>Process and save, then open the note in Library to inspect source and provider provenance.</li>
+        <li>Process and save, then open the note in Library to inspect the separate source-acquisition and processing provenance; choose View acquired source to confirm the exact stored input.</li>
         <li>Open Review to reveal and rate a card.</li>
         <li>Open Ask and search the local library; every result links back to its supporting note.</li>
       </ol>

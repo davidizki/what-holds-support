@@ -34,7 +34,7 @@
   <header class="document-header">
     <p class="eyebrow">Plain-language policy</p>
     <h1>Privacy policy</h1>
-    <p class="lede"><strong>Effective 11 August 2026.</strong> What Holds works without an account. The developer does not sell data, use it for advertising, track you across apps or websites, or operate a cloud copy of your library.</p>
+    <p class="lede"><strong>Effective 12 August 2026.</strong> What Holds works without an account. The developer does not sell data, use it for advertising, track you across apps or websites, or operate a cloud copy of your library.</p>
   </header>
 
   <nav class="document-nav" aria-label="Privacy policy sections">
@@ -50,7 +50,8 @@
     <section id="on-device">
       <h2>Data stored on your device</h2>
       <p>Captured sources, knowledge notes, claims, review cards, review history, preferences, and local search data are stored in the app container. Share extensions use the app’s private shared container only to hand selected content to the main app.</p>
-      <p>Apple on-device Foundation Model processing and the deterministic engine run on the device. What Holds does not send their prompts or results to the developer. Ask is also an extractive search over the local library and does not call a model service.</p>
+      <p>Apple on-device Foundation Model processing, exact-evidence selection for Summary, extractive processing for longer eligible sources, and the deterministic engine run on the device. What Holds does not send their prompts or results to the developer. Ask is also an extractive search over the local library and does not call a model service.</p>
+      <p>On supported system-26 devices, Apple SpeechAnalyzer and SpeechTranscriber process imported or publisher-provided audio on device. The transcriber modules do not send the voice audio to Apple servers. The system may contact Apple to check for or install the selected language asset.</p>
     </section>
 
     <section id="network">
@@ -67,6 +68,24 @@
               <td>The normal web request for the URL you chose</td>
               <td>The source website and its infrastructure</td>
               <td>To acquire the page you asked to capture</td>
+            </tr>
+            <tr>
+              <th scope="row">Retrieve YouTube captions</th>
+              <td>The video ID, preferred caption language, normal watch-page request, player-client metadata, and caption-track request; no YouTube video or audio</td>
+              <td>YouTube and its infrastructure</td>
+              <td>To locate and retrieve available public caption text for the video you chose</td>
+            </tr>
+            <tr>
+              <th scope="row">Retrieve a podcast transcript or publisher audio</th>
+              <td>The normal feed, transcript, page, or temporary audio request for the public source you chose</td>
+              <td>The publisher, podcast host, media CDN, and their infrastructure</td>
+              <td>To acquire publisher-provided text or audio for on-device transcription</td>
+            </tr>
+            <tr>
+              <th scope="row">Install an on-device speech language asset</th>
+              <td>The system language/locale asset request; not the captured audio</td>
+              <td>Apple</td>
+              <td>To make the selected on-device transcriber available</td>
             </tr>
             <tr>
               <th scope="row">Run Fact-check</th>
@@ -96,11 +115,14 @@
       <h3>Custom model endpoints are an advanced override</h3>
       <p>Custom model processing is not required and is not a connection to a ChatGPT subscription. It begins only after you enable an endpoint in Advanced settings with a clear disclosure that the acquired source and any saved API token used as an authorization credential will be sent there. Changing the destination clears the saved token and requires new consent. The endpoint’s own operator—not What Holds—controls its retention, logging, training, security, and deletion practices. Review that provider’s policy before enabling it. A local endpoint can keep inference on hardware you control.</p>
       <p>Endpoint credentials are stored in Apple Keychain and are excluded from library exports, shared notes, screenshots, and the public support site. Disable the endpoint to stop future requests; contact its operator about any data it already received.</p>
+
+      <h3>Source retrieval is not background collection</h3>
+      <p>Article, caption, feed, transcript, and audio requests happen because you selected that source. YouTube acquisition retrieves caption text only and does not download the video or audio. A publisher audio response is held in a temporary file only for on-device transcription and is removed after success, failure, or cancellation.</p>
     </section>
 
     <section id="retention">
       <h2>Retention, export, and deletion</h2>
-      <p>Local library data remains until you delete an item, erase the library in Settings, or remove the app, subject to Apple platform backup behavior. Deleting a note also removes its app-managed source, claims, cards, and review history when they are no longer used elsewhere.</p>
+      <p>Local library data remains until you delete an item, erase the library in Settings, or remove the app, subject to Apple platform backup behavior. Deleting a note also removes its app-managed source, claims, cards, and review history when they are no longer used elsewhere. Temporary publisher-audio downloads are removed after the acquisition attempt and are not part of the library or its backup.</p>
       <p>You can export a versioned JSON backup or share an individual note as Markdown. Those files are then controlled by the location or service you choose. What Holds has no developer account or server-side library to delete on your behalf.</p>
     </section>
 

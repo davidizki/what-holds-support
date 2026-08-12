@@ -32,6 +32,7 @@ body:
         - Standard processing is ready
         - Enhanced on this device
         - Standard on-device processing
+        - LLM web research
         - Public evidence scan
         - Custom model provider
     validations:

@@ -90,7 +90,7 @@
       <article class="mode-card fact-check">
         <span class="mode-icon" aria-hidden="true">✓</span>
         <h3>Fact-check</h3>
-        <p>A preliminary public-evidence scan with qualified verdicts.</p>
+        <p>LLM-guided live web research with cited, qualified verdicts—and a limited fallback.</p>
       </article>
       <article class="mode-card analysis">
         <span class="mode-icon" aria-hidden="true">⌁</span>
@@ -142,7 +142,7 @@
       </li>
       <li>
         <strong>Purpose-built exceptions</strong>
-        <span>Copy preserves the source exactly. Fact-check uses the disclosed public-evidence workflow; an LLM is never treated as evidence.</span>
+        <span>Copy preserves the source exactly. With separate approval, Fact-check uses an OpenAI reasoning model to search the live web and return citations; without that setup, a limited Wikipedia fallback remains available. The cited sources—not unsupported model prose—are the evidence.</span>
       </li>
     </ol>
     <aside class="notice" aria-label="Apple Intelligence availability">
@@ -174,7 +174,7 @@
     <div>
       <p class="eyebrow">A visible trust boundary</p>
       <h2 id="privacy-title">Local by default does not mean “never networks.”</h2>
-      <p>The app labels each route honestly. Your library and review history stay in the app container; specific actions can contact a source site and its ordinary page resources, Wikipedia, or an advanced endpoint you deliberately configure.</p>
+      <p>The app labels each route honestly. Your library and review history stay in the app container; specific actions can contact a selected source site, OpenAI and live-web sources for approved Fact-check research, Wikipedia for the limited fallback, or an advanced endpoint you deliberately configure.</p>
       <a class="text-link" href="privacy.html">Read the full privacy policy <span aria-hidden="true">→</span></a>
     </div>
     <dl class="boundary-list">
@@ -182,7 +182,8 @@
       <div><dt>Deterministic processing</dt><dd>On device</dd></div>
       <div><dt>Ask your library</dt><dd>On device</dd></div>
       <div><dt>Web capture</dt><dd>Selected source site</dd></div>
-      <div><dt>Fact-check</dt><dd>English Wikipedia API</dd></div>
+      <div><dt>Enhanced Fact-check</dt><dd>OpenAI plus live web sources</dd></div>
+      <div><dt>Fallback Fact-check</dt><dd>English Wikipedia API</dd></div>
       <div><dt>Custom model</dt><dd>Your configured endpoint</dd></div>
     </dl>
   </section>
@@ -196,11 +197,11 @@
     </details>
     <details>
       <summary>Do I need an AI subscription or account?</summary>
-      <p>No. Version 1 is designed as a one-time purchase with no What Holds account or subscription. The advanced custom-endpoint option is entirely optional and uses credentials supplied for that endpoint—not a ChatGPT login.</p>
+      <p>No What Holds account or subscription is required. Apple and standard processing work immediately. Enhanced Fact-check is optional and needs a separately billed OpenAI Platform API key; it cannot use or connect to a ChatGPT subscription. The advanced custom endpoint is also optional and uses credentials for that endpoint.</p>
     </details>
     <details>
       <summary>Is Fact-check a professional verification service?</summary>
-      <p>No. It is a deliberately limited preliminary scan of English Wikipedia. “Unsupported” means that scan did not corroborate the claim; it does not prove the claim false.</p>
+      <p>No. When enabled, its strongest route uses an OpenAI reasoning model to inspect the acquired source, search current web sources, compare evidence, and save clickable citations. Without an API key it uses a clearly labelled limited Wikipedia fallback. Both are automated research aids: “Unsupported” means the selected route did not corroborate the claim, not that the claim is proven false.</p>
     </details>
     <details>
       <summary>Does the first version sync between devices?</summary>

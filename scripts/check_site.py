@@ -110,6 +110,8 @@ if not (ROOT / "styles.css").is_file() or not (ROOT / "site-icon.svg").is_file()
 privacy_text = (ROOT / "privacy.html").read_text(encoding="utf-8")
 for required in (
     "on-device Foundation Model",
+    "LLM web research",
+    "OpenAI’s Responses API",
     "English Wikipedia API",
     "custom model endpoint",
     "Remote endpoints must use HTTPS",

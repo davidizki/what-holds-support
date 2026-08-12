@@ -106,13 +106,15 @@
 
     <section id="fact-check">
       <h2>Know what Fact-check can and cannot establish</h2>
-      <p>Fact-check sends a short query derived from selected claim text to the public English Wikipedia API, then compares the returned introductory extract with the claim. This is a preliminary automated evidence scan—not exhaustive research, a professional fact-check, or a universal truth score.</p>
-      <p><strong>Unsupported</strong> means the scan did not find corroboration. It does not prove the claim false. Follow the attached evidence link and consult specialist or primary sources before relying on an important conclusion.</p>
+      <p>The recommended route is <strong>LLM web research</strong>. After separate consent, an OpenAI reasoning model reads the acquired source material, identifies material claims using source-grounded wording, searches the live web, compares current evidence, and returns clickable citations. What Holds keeps only links reported by that search response. The model performs the research; the cited sources are the evidence.</p>
+      <p>To enable it, open What Holds Settings, expand <strong>Fact-check web research · Recommended</strong>, enter an OpenAI model and OpenAI Platform API key, save the key, then review and accept the disclosure. Platform API usage is billed separately by OpenAI and cannot be connected to a ChatGPT subscription. The app stores this key in a separate Keychain record and sends requests with response storage disabled.</p>
+      <p>Without that setup, Fact-check remains usable through the visibly labelled <strong>Public evidence scan</strong>, which searches the public English Wikipedia API with no more than the first 16 words of selected claim text. This fallback is deliberately limited.</p>
+      <p><strong>Unsupported</strong> means the selected research route did not find corroboration. It does not prove the claim false. Both routes are automated research aids—not exhaustive research, professional verification, or universal truth scores—so open the citations and consult relevant primary or specialist sources before an important decision.</p>
     </section>
 
     <section id="custom-endpoint">
       <h2>Use a custom model endpoint only when you intend to</h2>
-      <p>The Advanced processing controls accept an OpenAI-compatible base URL, model identifier, and optional API token. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in the endpoint URL. The separate token is sent only to that destination as an authorization credential; changing the normalized destination clears it and requires new consent. Enabling this route overrides automatic Apple/deterministic processing for eligible modes. Fact-check never uses it as evidence.</p>
+      <p>The Advanced processing controls accept an OpenAI-compatible base URL, model identifier, and optional API token. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in the endpoint URL. The separate token is sent only to that destination as an authorization credential; changing the normalized destination clears it and requires new consent. Enabling this route overrides automatic Apple/deterministic processing for Concept, Summary, Analysis, and Copy. Fact-check uses its separate web-research or limited-fallback route.</p>
       <ul>
         <li>The full acquired title, URL, source text, and processing instructions go to the configured endpoint.</li>
         <li>The token is stored in Apple Keychain and is not included in a library export.</li>
@@ -134,7 +136,7 @@
         <li>Open Review to reveal and rate a card.</li>
         <li>Open Ask and search the local library; every result links back to its supporting note.</li>
       </ol>
-      <p>Fact-check intentionally contacts Wikipedia. The custom endpoint remains an optional Advanced feature and is not needed for review.</p>
+      <p>Fresh installs use the limited Wikipedia Fact-check fallback, so no key is required for core review. The separately consented OpenAI web-research route and the custom endpoint remain optional and are not needed for Simulator review.</p>
     </section>
 
     <section id="contact">

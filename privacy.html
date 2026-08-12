@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Privacy policy for What Holds, including on-device processing, source retrieval, public evidence lookups, and optional custom model endpoints.">
+  <meta name="description" content="Privacy policy for What Holds, including on-device processing, source retrieval, optional LLM web research, the limited evidence fallback, and custom model endpoints.">
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ec">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0d1510">
   <meta property="og:type" content="website">
@@ -88,10 +88,16 @@
               <td>To make the selected on-device transcriber available</td>
             </tr>
             <tr>
-              <th scope="row">Run Fact-check</th>
+              <th scope="row">Run LLM web-research Fact-check</th>
+              <td>The source title, URL when present, acquired source material or source-spanning extracts, research instructions, and the separately saved OpenAI Platform API key as an authorization credential</td>
+              <td>OpenAI and the live-web sources its search tool requests</td>
+              <td>To identify source-grounded claims, search current sources, compare evidence, and return citations</td>
+            </tr>
+            <tr>
+              <th scope="row">Run the limited Fact-check fallback</th>
               <td>A search query containing up to the first 16 words of each selected claim</td>
               <td>The public English Wikipedia API operated by the Wikimedia Foundation</td>
-              <td>To locate one preliminary independent reference</td>
+              <td>To locate one preliminary reference when LLM web research is not enabled</td>
             </tr>
             <tr>
               <th scope="row">Use a custom model endpoint</th>
@@ -109,8 +115,9 @@
         </table>
       </div>
 
-      <h3>Fact-check is a public evidence lookup</h3>
-      <p>The English Wikipedia API receives the short claim query described above. What Holds stores the returned page title, URL, and excerpt locally with the note. Wikimedia’s handling of requests is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>. The scan is preliminary, not exhaustive, and an absent result is not proof that a claim is false.</p>
+      <h3>Fact-check has two clearly labelled research routes</h3>
+      <p>LLM web research begins only after you save an OpenAI Platform API key and affirmatively approve a disclosure naming OpenAI and the material sent. The request goes to OpenAI’s Responses API, sets response storage to false, and requires live web search. OpenAI and sites selected by its search tool may receive ordinary request and connection information under their own terms and privacy policies; OpenAI API charges apply. This feature does not connect to a ChatGPT account or subscription. The key is stored separately in Apple Keychain from any custom-endpoint token.</p>
+      <p>Without that approval, the English Wikipedia API receives only the short claim query described above. What Holds stores the returned page title, URL, and excerpt locally with the note. Wikimedia’s handling of requests is governed by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Foundation Privacy Policy</a>. Both routes are automated and non-exhaustive, and an absent result is not proof that a claim is false.</p>
 
       <h3>Custom model endpoints are an advanced override</h3>
       <p>Custom model processing is not required and is not a connection to a ChatGPT subscription. It begins only after you enable an endpoint in Advanced settings with a clear disclosure that the acquired source and any saved API token used as an authorization credential will be sent there. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in endpoint URLs. Changing the normalized destination clears the saved token and requires new consent. The endpoint’s own operator—not What Holds—controls its retention, logging, training, security, and deletion practices. Review that provider’s policy before enabling it. A local endpoint can keep inference on hardware you control.</p>

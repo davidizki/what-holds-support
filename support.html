@@ -112,12 +112,13 @@
 
     <section id="custom-endpoint">
       <h2>Use a custom model endpoint only when you intend to</h2>
-      <p>The Advanced processing controls accept an OpenAI-compatible base URL, model identifier, and optional API token. The token is sent only to that destination as an authorization credential; changing the destination clears it and requires new consent. Enabling this route overrides automatic Apple/deterministic processing for eligible modes. Fact-check never uses it as evidence.</p>
+      <p>The Advanced processing controls accept an OpenAI-compatible base URL, model identifier, and optional API token. Remote endpoints must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Credentials, query parameters, and fragments are rejected in the endpoint URL. The separate token is sent only to that destination as an authorization credential; changing the normalized destination clears it and requires new consent. Enabling this route overrides automatic Apple/deterministic processing for eligible modes. Fact-check never uses it as evidence.</p>
       <ul>
         <li>The full acquired title, URL, source text, and processing instructions go to the configured endpoint.</li>
         <li>The token is stored in Apple Keychain and is not included in a library export.</li>
         <li>A ChatGPT subscription is not an API credential and cannot be connected as an account.</li>
         <li>A local server such as Ollama can keep inference on hardware you control.</li>
+        <li>For a remote provider, paste its HTTPS base URL and put its bearer token only in the separate API token field.</li>
         <li>On a physical iPhone, <code>localhost</code> means the iPhone—not your Mac. A Mac-hosted endpoint requires an intentionally exposed and secured network address.</li>
       </ul>
       <p>If the endpoint reports an error, What Holds shows it rather than silently sending the source somewhere else. Disable the override to return to automatic private processing.</p>

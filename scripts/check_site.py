@@ -108,7 +108,13 @@ if not (ROOT / "styles.css").is_file() or not (ROOT / "site-icon.svg").is_file()
     fail("stylesheet or site icon is missing")
 
 privacy_text = (ROOT / "privacy.html").read_text(encoding="utf-8")
-for required in ("on-device Foundation Model", "English Wikipedia API", "custom model endpoint", "GitHub Pages"):
+for required in (
+    "on-device Foundation Model",
+    "English Wikipedia API",
+    "custom model endpoint",
+    "Remote endpoints must use HTTPS",
+    "GitHub Pages",
+):
     if required not in privacy_text:
         fail(f"privacy.html is missing required boundary text: {required}")
 

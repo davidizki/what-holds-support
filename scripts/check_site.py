@@ -104,8 +104,13 @@ for page, parser in parsed.items():
             if split.fragment not in target_parser.ids:
                 fail(f"{page.name} links to missing fragment: {href}")
 
-if not (ROOT / "styles.css").is_file() or not (ROOT / "app-icon.png").is_file():
-    fail("stylesheet or site icon is missing")
+for required_asset in ("styles.css", "site.js", "brand-mark.svg", "app-icon.png"):
+    if not (ROOT / required_asset).is_file():
+        fail(f"required site asset is missing: {required_asset}")
+
+for branded_page in (ROOT / "index.html", ROOT / "support.html", ROOT / "privacy.html"):
+    if 'src="brand-mark.svg"' not in branded_page.read_text(encoding="utf-8"):
+        fail(f"{branded_page.name} is not using the master product mark")
 
 privacy_text = (ROOT / "privacy.html").read_text(encoding="utf-8")
 for required in (

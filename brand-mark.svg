@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">What Holds</title>
+  <desc id="desc">A checked knowledge page on a deep navy field</desc>
+  <defs>
+    <linearGradient id="field" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#07182b"/>
+      <stop offset="1" stop-color="#06111f"/>
+    </linearGradient>
+    <filter id="paper-shadow" x="-30%" y="-30%" width="160%" height="180%">
+      <feDropShadow dx="0" dy="26" stdDeviation="24" flood-color="#020913" flood-opacity=".34"/>
+    </filter>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#field)"/>
+  <rect x="25.5" y="25.5" width="973" height="973" rx="222.5" fill="none" stroke="#29405a" stroke-width="3" opacity=".58"/>
+
+  <g fill="none" stroke="#dce8d2" stroke-width="12" opacity=".075">
+    <circle cx="694" cy="470" r="142"/>
+    <circle cx="694" cy="470" r="218"/>
+    <circle cx="694" cy="470" r="294"/>
+  </g>
+
+  <g transform="rotate(-4 504 496)" filter="url(#paper-shadow)">
+    <rect x="286" y="208" width="436" height="568" rx="48" fill="#f6f0df"/>
+    <path d="M322 230h364c8 0 14 6 14 14v496c0 8-6 14-14 14H322c-8 0-14-6-14-14V244c0-8 6-14 14-14Z" fill="none" stroke="#d8cfba" stroke-width="5"/>
+    <g fill="#0a1c30">
+      <rect x="362" y="344" width="238" height="28" rx="14"/>
+      <rect x="362" y="420" width="286" height="28" rx="14"/>
+      <rect x="362" y="496" width="188" height="28" rx="14"/>
+    </g>
+  </g>
+
+  <path d="M454 570 566 680 792 356" fill="none" stroke="#71933e" stroke-width="76" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M454 570 566 680 792 356" fill="none" stroke="#89a950" stroke-width="54" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

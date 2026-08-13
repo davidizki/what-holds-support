@@ -2,7 +2,7 @@
 
 Public product, support, and privacy pages for the What Holds iPhone, iPad, and Mac app.
 
-`app-icon.png` is the shared product mark copied from the app repository's 256-pixel shipping icon. Update the app icon first, then replace this file in the same release so the app, in-app navigation, website header, and browser icon remain one identity.
+`brand-mark.svg` is the website copy of the app repository's vector master at `Resources/Brand/WhatHoldsMark.svg`. `app-icon.png` is rasterised from that same master for browser and social surfaces. Change the vector geometry once, then update both repositories in the same release so the shipping icon, in-app navigation, website header, and browser icon remain one identity.
 
 - Product: <https://davidizki.github.io/what-holds-support/>
 - Support: <https://davidizki.github.io/what-holds-support/support.html>
@@ -10,7 +10,7 @@ Public product, support, and privacy pages for the What Holds iPhone, iPad, and 
 
 ## Deployment
 
-GitHub Pages publishes the repository root from `main` with HTTPS enforcement. The product, support, privacy, and error pages are static HTML and CSS with no JavaScript, advertising, or analytics. One unlisted, `noindex` acceptance fixture uses a short inline script to prove that What Holds can acquire a public article whose text appears only after client-side rendering; it sends no analytics or user data.
+GitHub Pages publishes the repository root from `main` with HTTPS enforcement. The product, support, privacy, and error pages use semantic static HTML, one shared stylesheet, and a small dependency-free interaction script. The script provides progressive enhancement for reveal motion, the learning-science and product demos, and keyboard-accessible tabs; it sends no analytics or user data. One unlisted, `noindex` acceptance fixture uses a short inline script to prove that What Holds can acquire a public article whose text appears only after client-side rendering.
 
 ## Local verification
 

@@ -10,7 +10,7 @@ Public product, support, and privacy pages for the What Holds iPhone, iPad, and 
 
 ## Deployment
 
-GitHub Pages publishes the repository root from `main` with HTTPS enforcement. The product, support, privacy, and error pages use semantic static HTML, one shared stylesheet, and a small dependency-free interaction script. The script provides progressive enhancement for reveal motion, the learning-science and product demos, and keyboard-accessible tabs; it sends no analytics or user data. One unlisted, `noindex` acceptance fixture uses a short inline script to prove that What Holds can acquire a public article whose text appears only after client-side rendering.
+GitHub Pages publishes the repository root from `main` with HTTPS enforcement. The product, support, privacy, and error pages use semantic static HTML, one shared stylesheet, and a small dependency-free interaction script. The script provides progressive enhancement for reveal motion, six evidence-labelled learning-science panels, the product demos, and keyboard-accessible tabs; it sends no analytics or user data. One unlisted, `noindex` acceptance fixture uses a short inline script to prove that What Holds can acquire a public article whose text appears only after client-side rendering.
 
 ## Local verification
 
@@ -34,7 +34,7 @@ For a rendered check, serve the repository and inspect compact and desktop width
 python3 -m http.server 8765
 ```
 
-Then open <http://localhost:8765/> and verify Product, Support, Privacy, keyboard focus, light/dark appearance, and horizontal overflow.
+Then open <http://localhost:8765/> and verify Product, Support, Privacy, every science/product tab, keyboard focus, sticky navigation, desktop and compact layouts, and horizontal overflow.
 
 GitHub Pages publishes the site from `main`. GitHub records its required Pages
 deployment as an Actions run, but this repository is public, so standard-runner

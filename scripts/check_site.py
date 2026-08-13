@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from html.parser import HTMLParser
 from pathlib import Path
+from collections import Counter
 from urllib.parse import urlsplit
 
 
@@ -20,6 +21,7 @@ class PageParser(HTMLParser):
         super().__init__(convert_charrefs=True)
         self.attrs: list[tuple[str, dict[str, str]]] = []
         self.ids: set[str] = set()
+        self.id_counts: Counter[str] = Counter()
         self.hrefs: list[str] = []
         self.sources: list[str] = []
         self.h1_count = 0
@@ -31,6 +33,7 @@ class PageParser(HTMLParser):
         self.attrs.append((tag, values))
         if values.get("id"):
             self.ids.add(values["id"])
+            self.id_counts[values["id"]] += 1
         if tag == "a" and values.get("href"):
             self.hrefs.append(values["href"])
         if tag in {"img", "script", "link"} and values.get("src"):
@@ -83,6 +86,9 @@ for page in PAGES:
     for tag, attrs in parser.attrs:
         if tag == "img" and "alt" not in attrs:
             fail(f"{page.name} has an image without an alt attribute")
+    duplicates = sorted(node_id for node_id, count in parser.id_counts.items() if count > 1)
+    if duplicates:
+        fail(f"{page.name} contains duplicate ids: {', '.join(duplicates)}")
 
 for page, parser in parsed.items():
     for href in parser.hrefs:
@@ -112,6 +118,48 @@ for branded_page in (ROOT / "index.html", ROOT / "support.html", ROOT / "privacy
     if 'src="brand-mark.svg"' not in branded_page.read_text(encoding="utf-8"):
         fail(f"{branded_page.name} is not using the master product mark")
 
+index_parser = parsed[ROOT / "index.html"]
+tabs = [attrs for _, attrs in index_parser.attrs if attrs.get("role") == "tab"]
+panels = [attrs for _, attrs in index_parser.attrs if attrs.get("role") == "tabpanel"]
+if len([tab for tab in tabs if "data-science-target" in tab]) != 6:
+    fail("index.html must expose exactly six science tabs")
+if len([tab for tab in tabs if "data-demo-target" in tab]) != 3:
+    fail("index.html must expose exactly three product-demo tabs")
+if sum(tab.get("aria-selected") == "true" for tab in tabs) != 2:
+    fail("each tab interface must have one initially selected tab")
+panel_ids = {panel.get("id") for panel in panels}
+for tab in tabs:
+    if not tab.get("id") or not tab.get("aria-controls"):
+        fail("every tab needs an id and aria-controls")
+    if tab["aria-controls"] not in panel_ids:
+        fail(f"tab controls a missing panel: {tab['aria-controls']}")
+for panel in panels:
+    if panel.get("aria-labelledby") not in index_parser.ids:
+        fail(f"panel has a missing aria-labelledby target: {panel.get('id')}")
+
+index_text = (ROOT / "index.html").read_text(encoding="utf-8")
+for required in (
+    "Generation before automation",
+    "Retrieval practice",
+    "Practise future use",
+    "Confidence before feedback",
+    "Product inference: memory ≠ truth",
+    "What the evidence does not say",
+    "4,096-token context window",
+):
+    if required not in index_text:
+        fail(f"index.html is missing required learning-science text: {required}")
+
+support_text = (ROOT / "support.html").read_text(encoding="utf-8")
+for required in (
+    "Learning and review",
+    "Find later",
+    "Confidence before reveal",
+    "Re-run evidence check",
+):
+    if required not in support_text:
+        fail(f"support.html is missing required learning guidance: {required}")
+
 privacy_text = (ROOT / "privacy.html").read_text(encoding="utf-8")
 for required in (
     "on-device Foundation Model",
@@ -125,9 +173,11 @@ for required in (
     "Europe PMC",
     "custom model endpoint",
     "Remote endpoints must use HTTPS",
+    "pre-processing predictions",
+    "confidence judgments",
     "GitHub Pages",
 ):
     if required not in privacy_text:
         fail(f"privacy.html is missing required boundary text: {required}")
 
-print(f"Checked {len(PAGES)} pages: metadata, headings, image alternatives, local links, fragments, and privacy boundaries passed.")
+print(f"Checked {len(PAGES)} pages: metadata, headings, ids, tab contracts, learning guidance, local links, fragments, and privacy boundaries passed.")

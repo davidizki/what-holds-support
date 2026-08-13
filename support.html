@@ -44,6 +44,7 @@
   <nav class="document-nav" aria-label="Support sections">
     <strong>On this page</strong>
     <a href="#processing">How notes are made</a>
+    <a href="#learning">Learning and review</a>
     <a href="#capture">Capture help</a>
     <a href="#backup">Backup and deletion</a>
     <a href="#fact-check">Fact-check limits</a>
@@ -75,6 +76,42 @@
         </div>
       </dl>
       <aside class="notice"><strong>Compatibility:</strong> What Holds supports iOS/iPadOS 17 or later and macOS 14 or later. Apple’s on-device generation requires additional Apple Intelligence eligibility and iOS/iPadOS/macOS 26 or later.</aside>
+    </section>
+
+    <section id="learning">
+      <h2>Choose what the source should do for you</h2>
+      <p>The five treatments and the learning goal answer different questions. <strong>Concept, Summary, Fact-check, Analysis, or Copy</strong> decides the shape of the saved result. <strong>Find later, Understand, Recall, Use it, or Keep current</strong> decides what happens afterwards.</p>
+      <dl class="status-list">
+        <div>
+          <dt>Find later</dt>
+          <dd>Keeps Concept, Summary, or Analysis searchable without adding memory work. Copy always uses this path because an arbitrary source sentence is not automatically worth memorising.</dd>
+        </div>
+        <div>
+          <dt>Understand or Recall</dt>
+          <dd>Creates the smallest grounded practice plan after processing. Summary asks you to reconstruct all key points rather than recognise one opening phrase. The first practice begins the following day.</dd>
+        </div>
+        <div>
+          <dt>Use it</dt>
+          <dd>Asks where you expect to need the idea and uses that situation in the practice prompt. This rehearses application instead of treating definition recall as proof that knowledge will transfer.</dd>
+        </div>
+        <div>
+          <dt>Keep current</dt>
+          <dd>Fact-check uses a separate evidence queue. Choose how quickly the subject can change: mostly stable starts at 365 days, changes sometimes at 90, and changes quickly at 30. These are visible defaults, not a guarantee of optimal timing.</dd>
+        </div>
+      </dl>
+      <h3>Why the app asks what you think first</h3>
+      <p>For learning goals, you can write one quick prediction before processing. It is optional and does not need to be correct. The finished note keeps it visible so you can compare your starting model with what the grounded result actually says.</p>
+      <h3>How memory review works</h3>
+      <p><strong>Confidence before reveal</strong> is required so the app records what you believed before feedback changes your judgment.</p>
+      <ol>
+        <li>Try the answer before revealing it. Type it, or answer aloud and leave the field blank.</li>
+        <li>Choose Unsure, Somewhat sure, or Sure before seeing feedback.</li>
+        <li>Reveal the source-grounded answer and compare your attempt as Missed, Partial, Solid, or Effortless.</li>
+        <li>If you were Sure but Missed or were Partial, state what changed in your own words before continuing.</li>
+      </ol>
+      <p>The next interval responds mainly to performance, with modest adjustments for confidence and the horizon you chose. The schedule is an evidence-informed product heuristic, not a universal prediction of what you remember.</p>
+      <h3>How evidence review works</h3>
+      <p>A due claim keeps its captured wording, old verdict, explanation, and citations together. Choose <strong>Re-run evidence check</strong> to repeat the full research flow and replace the Fact-check in place, or open and check the cited sources yourself before scheduling the next review. Rerunning preserves the note’s identity, favourite state, and relationships; it does not create a duplicate. Older captures marked <strong>Reprocess recommended</strong> stay out of active review until you update them from their exact stored source.</p>
     </section>
 
     <section id="capture">
@@ -133,9 +170,9 @@
       <p>No demo account, login, subscription, API token, or external model is required to exercise the core product. On Simulator and devices where Apple Intelligence is unavailable, standard built-in processing is expected.</p>
       <ol>
         <li>Choose Start learning on first launch.</li>
-        <li>Create a Text capture with at least eight words and choose Summary.</li>
-        <li>Process and save, then open the note in Library to see where the source came from and how the note was made; choose View acquired source to confirm the exact stored text.</li>
-        <li>Open Review to reveal and rate a card.</li>
+        <li>Create a Text capture with at least eight words, choose Summary, then choose Understand under Future use.</li>
+        <li>Optionally write a quick prediction, process and save, then open the note in Library to see its learning plan, where the source came from, and how the note was made; choose View acquired source to confirm the exact stored text.</li>
+        <li>Open Review, choose a confidence level, reveal the seeded due card, and compare the attempt.</li>
         <li>Open Ask and search the local library; every result links back to its supporting note.</li>
       </ol>
       <p>Fresh installs use Automatic Fact-check. On Simulator, the visibly labelled Public evidence scan retrieves bounded public reference and scholarly evidence but leaves it Unresolved without a language model. On an eligible device, Apple Intelligence selects material source-grounded claims and reasons over relevance-gated excerpts on device. No key is required. OpenAI live-web evidence and custom models are optional and are not needed for review.</p>

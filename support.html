@@ -59,7 +59,7 @@
       <dl class="status-list">
         <div>
           <dt>On-device intelligence ready</dt>
-          <dd>Apple’s Foundation Model is available, supports the language, and can be used automatically for every eligible mode. Fact-check asks it to reason over retrieved evidence excerpts; Copy uses it only for tags and its review card, while the Copy body remains exact.</dd>
+          <dd>Apple’s Foundation Model is available and supports the language. It is used automatically for every intelligent stage, including long-source section processing, Fact-check claim selection, and evidence reasoning. Copy keeps its canonical body byte-exact and may add a word-identical readable view.</dd>
         </div>
         <div>
           <dt>Turn on Apple Intelligence for richer processing</dt>
@@ -89,6 +89,8 @@
       <p>Supported documents are PDF, plain text, Markdown, HTML, and RTF, up to 30 MB. Supported audio files use the system audio decoder and may be up to 250 MB on system version 26 or later. Image-only scans need selectable text before What Holds can process them.</p>
       <h3>The note looks incomplete</h3>
       <p>What Holds should show an error instead of quietly saving a title, page controls, or other incomplete text. In the saved note, check where the source came from and how the note was made, then choose <strong>View acquired source</strong> to inspect the complete stored text. Older YouTube captures that contain only page controls show a recapture warning. Try pasting some text directly to find out whether the problem is reading the source or making the note.</p>
+      <h3>Apple Intelligence could not finish</h3>
+      <p>An available Apple model gets one bounded fresh retry or focused output repair. If the result still cannot be grounded safely, What Holds keeps the acquired source in the capture sheet and saves no note. Choose <strong>Try again</strong>, explicitly choose <strong>Use Standard processing instead</strong> for that capture, or cancel. Standard processing starts automatically only when Apple Intelligence was unavailable before processing.</p>
       <h3>The share extension queued an item</h3>
       <p>Open What Holds and check Inbox. The extension hands the item to the main app; the capture is processed only after you choose its treatment.</p>
     </section>
@@ -106,14 +108,15 @@
 
     <section id="fact-check">
       <h2>Know what Fact-check can and cannot establish</h2>
-      <p>The default is <strong>Automatic Apple-first Fact-check</strong>. Apple Intelligence turns noisy source captions into readable claims while What Holds keeps the matching raw wording available under <strong>Captured wording</strong>. Instead of searching the first words of a caption, the app plans a small set of relevant research concepts and searches English Wikipedia, cross-domain scholarly abstracts from Crossref, and biomedical literature from Europe PMC when appropriate. Several candidates are checked for the same subject and outcome before Apple reasons over the evidence on your device. Otherwise the <strong>Public evidence scan</strong> shows relevant references without treating word overlap as proof.</p>
-      <p>For a wider search of current web sources, expand <strong>Broader Fact-check research · Optional</strong> in Settings, enter an OpenAI model and OpenAI Platform API key, save the key, then review and accept the disclosure. An OpenAI reasoning model can then search live sources and return links that What Holds checks against the search response. OpenAI bills API usage separately, and a ChatGPT subscription cannot be used instead. The app stores the key separately in Apple Keychain and asks OpenAI not to store the response.</p>
-      <p><strong>Unsupported</strong> means the selected method did not find enough supporting evidence. It does not prove the claim false. Every option is an automated research aid—not exhaustive research or professional verification—so open the links and consult relevant primary or specialist sources before an important decision.</p>
+      <p>The default is <strong>Automatic Apple-first Fact-check</strong>. Apple inventories every ordered source section and selects one to five material, independently verifiable propositions. Advice, slogans, promotions, subjective judgements, and incomplete caption fragments are left out instead of padded into a quota. Every clean claim keeps its exact raw wording under <strong>Captured wording</strong>.</p>
+      <p>What Holds sends at most 12 short source-grounded research words to English Wikipedia and Wikidata, Crossref and OpenAlex, and relevant PubMed and Europe PMC records. Before Apple sees a reference, the app requires it to address both the claim’s subject and decisive outcome—shared words or a broadly related topic are not enough. Apple then explains <strong>Supported</strong>, <strong>Contradicted</strong>, <strong>Mixed</strong>, or <strong>Unresolved</strong> on device, with citations, evidence limitations, and confidence rationale. On Apple-unavailable devices, the <strong>Public evidence scan</strong> leaves relevance-gated references Unresolved rather than treating overlap as proof.</p>
+      <p>For current live-web evidence, expand <strong>Live-web Fact-check evidence · Optional</strong> in Settings, enter an OpenAI model and Platform API key, save the key, then accept the disclosure. While Apple Intelligence is available, OpenAI receives only the clean grounded claim and bounded research words, returns cited evidence, and Apple remains the final reasoner. Only on an Apple-unavailable device can the same approval run a complete OpenAI Fact-check using the separately disclosed source material. OpenAI bills API usage separately; a ChatGPT subscription cannot be used instead. The app stores the key in Apple Keychain and sets <code>store: false</code>.</p>
+      <p><strong>Unresolved</strong> means the selected method did not establish a supported, contradicted, or mixed result. It does not prove the claim false. Every option is an automated research aid—not exhaustive research or professional verification—so open the links and consult relevant primary or specialist sources before an important decision.</p>
     </section>
 
     <section id="custom-endpoint">
       <h2>Use a custom model endpoint only when you intend to</h2>
-      <p>The Advanced settings accept an OpenAI-compatible web address, model name, and optional API token. Remote services must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Login details and extra URL parameters do not belong in the address. The separate token is sent only to the service you chose; changing that address clears the token and asks for consent again. Enabling this option replaces automatic Apple and built-in processing for Concept, Summary, Analysis, and Copy. Fact-check remains Apple-first unless you separately enable broader research.</p>
+      <p>The Advanced settings accept an OpenAI-compatible web address, model name, and optional API token. Remote services must use HTTPS; plain HTTP is accepted only for localhost or a private local-network server. Login details and extra URL parameters do not belong in the address. The separate token is sent only to the service you chose; changing that address clears the token and asks for consent again. Enabling this option replaces automatic Apple and Standard processing for Concept, Summary, Analysis, and Copy. Fact-check remains Apple-first; optional OpenAI live-web evidence is approved separately.</p>
       <ul>
         <li>The full acquired title, URL, source text, and processing instructions go to the configured endpoint.</li>
         <li>The token is stored in Apple Keychain and is not included in a library export.</li>
@@ -135,7 +138,7 @@
         <li>Open Review to reveal and rate a card.</li>
         <li>Open Ask and search the local library; every result links back to its supporting note.</li>
       </ol>
-      <p>Fresh installs use Automatic Fact-check. On Simulator, the visibly labelled Public evidence scan retrieves bounded public reference and scholarly evidence but leaves it unresolved without a language model; on an eligible device Apple Intelligence creates readable source-grounded claims and reasons over the relevant excerpts on device. No key is required. Broader OpenAI research and custom models are optional and are not needed for review.</p>
+      <p>Fresh installs use Automatic Fact-check. On Simulator, the visibly labelled Public evidence scan retrieves bounded public reference and scholarly evidence but leaves it Unresolved without a language model. On an eligible device, Apple Intelligence selects material source-grounded claims and reasons over relevance-gated excerpts on device. No key is required. OpenAI live-web evidence and custom models are optional and are not needed for review.</p>
     </section>
 
     <section id="contact">

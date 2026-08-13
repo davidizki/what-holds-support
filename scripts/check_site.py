@@ -115,10 +115,13 @@ for branded_page in (ROOT / "index.html", ROOT / "support.html", ROOT / "privacy
 privacy_text = (ROOT / "privacy.html").read_text(encoding="utf-8")
 for required in (
     "on-device Foundation Model",
-    "LLM web research",
+    "OpenAI live-web evidence",
     "OpenAI’s Responses API",
     "English Wikipedia",
+    "Wikidata",
     "Crossref",
+    "OpenAlex",
+    "PubMed",
     "Europe PMC",
     "custom model endpoint",
     "Remote endpoints must use HTTPS",

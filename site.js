@@ -77,6 +77,9 @@ function activateScience(selected) {
   document.querySelectorAll("[data-science-panel]").forEach((panel) => {
     panel.hidden = panel.dataset.sciencePanel !== target;
   });
+  document.querySelectorAll("[data-science-scene]").forEach((scene) => {
+    scene.hidden = scene.dataset.scienceScene !== target;
+  });
   if (scienceConsole) scienceConsole.dataset.activeScience = target;
 }
 activateTabs(scienceButtons, activateScience);

@@ -123,6 +123,13 @@ tabs = [attrs for _, attrs in index_parser.attrs if attrs.get("role") == "tab"]
 panels = [attrs for _, attrs in index_parser.attrs if attrs.get("role") == "tabpanel"]
 if len([tab for tab in tabs if "data-science-target" in tab]) != 6:
     fail("index.html must expose exactly six science tabs")
+science_scenes = [attrs for _, attrs in index_parser.attrs if "data-science-scene" in attrs]
+if len(science_scenes) != 6:
+    fail("index.html must expose exactly six matching science visuals")
+if {scene["data-science-scene"] for scene in science_scenes} != {
+    tab["data-science-target"] for tab in tabs if "data-science-target" in tab
+}:
+    fail("science tabs and science visuals must use the same targets")
 if len([tab for tab in tabs if "data-demo-target" in tab]) != 3:
     fail("index.html must expose exactly three product-demo tabs")
 if sum(tab.get("aria-selected") == "true" for tab in tabs) != 2:
@@ -139,13 +146,13 @@ for panel in panels:
 
 index_text = (ROOT / "index.html").read_text(encoding="utf-8")
 for required in (
-    "Generation before automation",
-    "Retrieval practice",
-    "Practise future use",
+    "Try before you see",
+    "Recall before reveal",
+    "Practise the real use",
     "Confidence before feedback",
-    "Product inference: memory ≠ truth",
-    "What the evidence does not say",
-    "4,096-token context window",
+    "Remembering is not verification",
+    "The honest limit",
+    "4,096-token limit",
 ):
     if required not in index_text:
         fail(f"index.html is missing required learning-science text: {required}")
